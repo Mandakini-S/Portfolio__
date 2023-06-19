@@ -1,0 +1,28 @@
+
+//Starting point
+// Uesd in website: #022c43
+
+$primary-color-y:#ffd700;
+$primary-color-ly:#fbf8be;
+$primary-color-b:#022c43;
+
+@import 'animate.css';
+
+@font-face {
+  font-family:'Helvetica Neue' ;
+  src: url('./assets/fonts/helvetica-neu.ttf') format('ttf');
+ }
+
+ @font-face {
+  font-family:'La Bella Aurore' ;
+  src: url('./assets/fonts/LaBelleAurore.woff2') format('woff2');
+ }
+
+ @font-face {
+  font-family:'Coolvetica' ;
+  src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2');
+ }
+
+ input, textarea{
+  font-family: 'Helvetica Neue';
+ }
