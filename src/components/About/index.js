@@ -1,18 +1,22 @@
 import './index.scss'
 import AnimatedLetters from '../AnimatedLetters'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from 'react'
 import {
     faCss3,faFigma,faGitAlt,
     faSass,faHtml5,faReact
   } from '@fortawesome/free-brands-svg-icons'
 
 const About =() =>{
-    return(
+    
+      const [letterClass, setLetterClass] = useState('text-animate')
+      const nameArray = ['A','b','o','u','t',' ','m','e']
+      return(
         <div className='container about-page'>
             <div className='text_zone'>
                 <h1>
-                <AnimatedLetters
-                        strArray={['A','b','o','u','t',' ','m','e']}
+                <AnimatedLetters letterClass={letterClass}
+                        strArray={nameArray}
                         idx={15} />
                 </h1>
                 <p> A Baglung native pursuing a Bachelor's degree in Electronics, Communication, and Information Engineering at Paschimanchal Campus Pokhara. With a passion for web development and graphic designing, I am always eager to learn new skills and expand my knowledge. 
