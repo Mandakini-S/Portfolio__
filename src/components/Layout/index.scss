@@ -1,3 +1,5 @@
+$dark_color:#022c43;
+
 .page{
     height: 100%;
     width:100%;
@@ -25,9 +27,9 @@
       width: 450px;
     }
     h1 {
-      font-size: 53px;
+      font-size: 76px;
       font-family: 'Coolvetica';
-      color: #ffd700;
+      color: $dark_color;
       font-weight: 400;
       margin-top: 0;
       position: relative;
@@ -35,7 +37,7 @@
     }
 
     p {
-      font-size: 13px;
+      font-size: 18px;
       color: #022c43;
       font-family: sans-serif;
       font-weight: 300;

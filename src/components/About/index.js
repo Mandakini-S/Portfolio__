@@ -2,12 +2,8 @@ import './index.scss'
 import AnimatedLetters from '../AnimatedLetters'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faCss3,
-    faFigma,
-    faGitAlt,
-    faSass,
-    faHtml5,
-    faReact
+    faCss3,faFigma,faGitAlt,
+    faSass,faHtml5,faReact
   } from '@fortawesome/free-brands-svg-icons'
 
 const About =() =>{
@@ -19,7 +15,7 @@ const About =() =>{
                         strArray={['A','b','o','u','t',' ','m','e']}
                         idx={15} />
                 </h1>
-                <p> a Baglung native pursuing a Bachelor's degree in Electronics, Communication, and Information Engineering at Paschimanchal Campus Pokhara. With a passion for web development and graphic designing, I am always eager to learn new skills and expand my knowledge. 
+                <p> A Baglung native pursuing a Bachelor's degree in Electronics, Communication, and Information Engineering at Paschimanchal Campus Pokhara. With a passion for web development and graphic designing, I am always eager to learn new skills and expand my knowledge. 
                 </p>
                 <p>
                     In my free time, I enjoy exploring and appreciating nature, observing the beauty of the sky, clouds, mountains, and birds. </p>
