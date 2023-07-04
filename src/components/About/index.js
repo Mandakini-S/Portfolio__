@@ -10,7 +10,7 @@ import {
 const About =() =>{
     
       const [letterClass, setLetterClass] = useState('text-animate')
-      const nameArray = ['A','b','o','u','t',' ','m','e']
+      const nameArray = ['A','b','o','u','t',' ',' ','m','e']
       return(
         <div className='container about-page'>
             <div className='text_zone'>

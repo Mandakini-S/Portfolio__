@@ -30,6 +30,7 @@ const Home = () => {
                    
                 </h1>
                 <h2> Frontend Developer | Graphics Designer</h2>
+                <h2> This website is under construction.</h2>
                 <Link to="/contact" className="flat-button">CONTACT ME</Link>
             </div>
             <Logo/>

@@ -2,7 +2,7 @@
     .text-zone {
       position: absolute;
       left: 15%;
-      top: 50%;
+      top: 60%;
       transform: translateY(-50%);
       width: 40%;
       max-height: 90%;
@@ -11,8 +11,8 @@
   
     h1 {
       color:#022c43;
-      font-size: 76px;
-      line-height: 70px;
+      font-size: 96px;
+      line-height: 80px;
       margin-top: 0;
       font-family: 'Coolvetica';
       font-weight: 400;
@@ -40,23 +40,14 @@
         opacity: 0.6;
       }
   
-      img {
-        margin-left: 20px;
-        opacity: 0;
-        width: 32px;
-        height: auto;
-        animation: rotateIn 1s linear both;
-        animation-delay: 1.4s;
-      }
     }
   
     h2 {
       color: #8d8d8d;
-      margin-top: 10px;
       font-weight: 400;
-      font-size: 15px;
+      font-size: 25px;
       font-family: sans-serif;
-      letter-spacing: 3px;
+      letter-spacing: 2.5px;
       animation: fadeIn 1s 1.8s backwards;
     }
   
@@ -115,13 +106,4 @@
       margin: auto;
       left: 0;
     }
-  
-    .logo-container svg {
-      position: absolute;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: 0;
-      margin: auto;
     }
-  }
