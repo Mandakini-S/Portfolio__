@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './index.scss';
 import AnimatedLetters from "../AnimatedLetters";
 import { useState } from "react";
-import Logo from "./Logo";
+import LogoS from '../../assets/images/MS_logo-06.png'
 const Home = () => {
 
     const [letterClass, setLetterClass] = useState('text-animate')
@@ -27,15 +27,18 @@ const Home = () => {
                         strArray={nameArray}
                         idx={15} />
                     <br />
-                   
+
                 </h1>
                 <h2> Frontend Developer | Graphics Designer</h2>
                 <h3> This website is under construction.</h3>
                 <Link to="/contact" className="flat-button">CONTACT ME</Link>
             </div>
-            <Logo/>
+            <div className='logo-container'>
+                <img className='solid-logo' src={LogoS} alt="logo" />
+            </div>
+            {/* <div> <Logo/></div> */}
         </div>
-       
+
     );
 }
 
