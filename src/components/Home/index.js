@@ -10,9 +10,10 @@ const Home = () => {
     const nameArray = ['M', 'a', 'n', 'd', 'a', 'k', 'i', 'n', 'i']
 
     return (
-        <div className="container home-page">
-            <div className="text-zone">
-                <h1>
+<div className="container-fluid container home-page">
+      <div className="col-lg-8 text-zone">
+
+      <h1>
                     <span className={letterClass}>H</span>
                     <span className={`${letterClass} _12`}>e</span>
                     <span className={`${letterClass} _12`}>l</span>
@@ -32,12 +33,14 @@ const Home = () => {
                 <h2> Frontend Developer | Graphics Designer</h2>
                 <h3> This website is under construction.</h3>
                 <Link to="/contact" className="flat-button">CONTACT ME</Link>
-            </div>
-            <div className='logo-container'>
-                <img className='solid-logo' src={LogoS} alt="logo" />
-            </div>
-            {/* <div> <Logo/></div> */}
-        </div>
+                </div>
+                <div className="col-lg-4 logo-container">
+                
+    <img className='solid-logo' src={LogoS} alt="logo" />
+    
+    </div>
+  </div>
+
 
     );
 }
