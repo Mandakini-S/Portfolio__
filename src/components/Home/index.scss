@@ -136,10 +136,13 @@
     
   }
     .logo-container {
-      margin-top:70%;
+      margin-top:66%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       z-index: 0;
       width:350px;
-      text-align: center;
+      align-items: center;
       // left:0%
       
     }
@@ -147,8 +150,7 @@
     display: flex;
     justify-content: space-around;
     max-width: 100%;
-    height: auto;
-    // overflow: auto;
+   
   }
 
   .text-zone {
@@ -156,4 +158,12 @@
     margin-bottom: 20px;
   }
   
-    }
+}
+
+@media screen and (max-width: 800px) {
+
+  .logo-container{
+    margin-top: 550px;
+  }
+
+}
