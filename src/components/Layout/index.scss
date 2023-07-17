@@ -4,6 +4,7 @@ $dark_color:#022c43;
     // height: 100%;
     width:100%;
     position: absolute;
+   
 }
   
   .container {
@@ -19,7 +20,7 @@ $dark_color:#022c43;
     transform-style: preserve-3d;
     animation: fadeIn 1s forwards;
     animation-delay: 1s;
-  }
+      }
  
   .about-page , .contact-page{
     left: 130px;
@@ -62,7 +63,7 @@ $dark_color:#022c43;
     width: 35%;
     vertical-align: middle;
     display: table-cell;
-    max-height: 90%;
+    max-height: 100%;
   }
 
   .text-animate-hover {
