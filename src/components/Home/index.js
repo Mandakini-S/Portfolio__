@@ -1,4 +1,4 @@
-
+import React from "react";
 import { Link } from "react-router-dom";
 import './index.scss';
 import AnimatedLetters from "../AnimatedLetters";
@@ -11,7 +11,7 @@ const Home = () => {
 
     return (
 <div className="container-fluid container home-page">
-      <div className="col-lg-8 text-zone">
+      <div className="text-zone">
 
       <h1>
                     <span className={letterClass}>H</span>

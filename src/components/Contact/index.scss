@@ -3,17 +3,19 @@
     // justify-content: space-evenly;
     margin-left: 10px;
     height: 90%;
-    min-height: 566px;
+    min-height: 100vh;
     position: absolute;
     opacity: 0;
     top: -15%;
+    // overflow:scroll;
+    // height: 100vh;
 }
 .contact-page{
     margin-left: 20px;
+   
 }
 .text_zone{
-    margin-left: 10px;
-    
+    margin-left: 10px;   
 }
 
 .form-zone{
