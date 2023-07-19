@@ -32,7 +32,7 @@ const Home = () => {
                 </h1>
                 <h2> Frontend Developer | Graphics Designer</h2>
                 <h3> This website is under construction.</h3>
-                <Link to="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJfrKsWmbLLSlFgrWJhxvZHqMqRsxpPRWBjCCmQHtXXvBFKdGTXxXQZmGVnWhFfclhPptVV" className="flat-button">MAIL ME</Link>
+                <Link to="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJfrKsWmbLLSlFgrWJhxvZHqMqRsxpPRWBjCCmQHtXXvBFKdGTXxXQZmGVnWhFfclhPptVV" className="flat-button" target="_blank">MAIL ME</Link>
                 </div>
                 <div className="col-lg-4 logo-container">
                 
