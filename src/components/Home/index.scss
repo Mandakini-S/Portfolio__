@@ -64,7 +64,9 @@
   }
 
   .flat-button {
-    color: #022c43;
+    // color: #022c43;
+    background: #022c43;
+    color: #fbf8be;
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 4px;
@@ -78,8 +80,9 @@
     white-space: nowrap;
 
     &:hover {
-      background: #022c43;
-      color: #fbf8be;
+      background: #fbf8be;
+      color: #022c43;
+      
     }
   }
 
