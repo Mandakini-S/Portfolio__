@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './index.scss'
 import LogoS from '../../assets/images/MS_logo-07.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faPenNib, faUser, faCode, faEnvelope, faBars, faTimes, faTrophy, faBlog } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faPenNib, faUser, faCode, faEnvelope, faBars, faTimes, faTrophy, faBlog, faCalendarCheck } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin, faMedium} from '@fortawesome/free-brands-svg-icons'
 
 const Sidebar = () => {
@@ -20,7 +20,7 @@ const Sidebar = () => {
   // Detect active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'skills', 'projects', 'achievements', 'blog', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'projects', 'events', 'achievements', 'blog', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -91,6 +91,15 @@ const Sidebar = () => {
               title="Projects"
             >
                 <FontAwesomeIcon icon={faPenNib} color="4d4d4e" />
+            </a>
+
+            <a 
+              href="#events" 
+              className={`nav-link events-link ${activeSection === 'events' ? 'active' : ''}`}
+              onClick={(e) => { e.preventDefault(); scrollToSection('events'); }}
+              title="Events"
+            >
+                <FontAwesomeIcon icon={faCalendarCheck} color="4d4d4e" />
             </a>
 
             <a 

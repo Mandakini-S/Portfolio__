@@ -33,7 +33,15 @@ import {
   faBlog,
   faCalendarAlt,
   faUser,
-  faBookOpen
+  faBookOpen,
+  faCalendarCheck,
+  faMicrophone,
+  faUsers,
+  faPalette,
+  faTools,
+  faHandshake,
+  faEdit,
+  faAward
 } from '@fortawesome/free-solid-svg-icons';
 import Loader from 'react-loaders';
 
@@ -154,6 +162,111 @@ const OnePagePortfolio = () => {
     }
   ];
 
+  const events = [
+    {
+      title: "EthosHack - National Hackathon",
+      role: "Software Manager & Organizer",
+      date: "2024",
+      location: "Pashchimanchal Campus",
+      type: "Organizer",
+      description: "Led the technical aspects of a national hackathon, overseeing GitHub repositories and providing real-time technical support to participants. Designed certificates, ID cards, and social media posts despite limited timeframe.",
+      responsibilities: [
+        "Managed GitHub repositories for all participating teams",
+        "Provided real-time technical support to 100+ participants",
+        "Designed certificates, ID cards, and promotional materials",
+        "Created and scheduled social media content"
+      ],
+      skills: ["Event Management", "Git/GitHub", "Design", "Content Writing"],
+      image: "/api/placeholder/400/300",
+      gallery: ["/api/placeholder/300/200", "/api/placeholder/300/200", "/api/placeholder/300/200"]
+    },
+    {
+      title: "Sagarmatha Hacktoberfest 2023",
+      role: "Lead Graphics Designer & Organizer",
+      date: "October 2023",
+      location: "Nepal",
+      type: "Organizer",
+      description: "Spearheaded the visual identity and promotional strategy for Hacktoberfest 2023, creating engaging designs that significantly boosted event participation and community engagement.",
+      responsibilities: [
+        "Designed promotional banners, posters, and social media graphics",
+        "Created cohesive visual identity for the event",
+        "Managed tight deadlines with multiple design deliverables",
+        "Collaborated with organizing team for event coordination"
+      ],
+      skills: ["Graphic Design", "Adobe Creative Suite", "Event Branding", "Social Media"],
+      image: "/api/placeholder/400/300",
+      gallery: ["/api/placeholder/300/200", "/api/placeholder/300/200", "/api/placeholder/300/200"]
+    },
+    {
+      title: "ICON Vol. 7 - Student Research Journal",
+      role: "Editor in Chief",
+      date: "2023",
+      location: "Pashchimanchal Campus",
+      type: "Leadership",
+      description: "Led the editorial process for ICON (ISSN: 2645-8365), a prestigious student research journal, ensuring high-quality academic publication standards.",
+      responsibilities: [
+        "Designed entire publication using Adobe InDesign",
+        "Led content selection and curation process",
+        "Maintained high editorial standards for grammar and style",
+        "Coordinated with authors and review committee"
+      ],
+      skills: ["Editorial Leadership", "Adobe InDesign", "Academic Writing", "Publication Design"],
+      image: "/api/placeholder/400/300",
+      gallery: ["/api/placeholder/300/200", "/api/placeholder/300/200"]
+    },
+    {
+      title: "ICES Society Vice President",
+      role: "Vice President",
+      date: "April 2023 - May 2024",
+      location: "Pashchimanchal Campus",
+      type: "Leadership",
+      description: "Served as Vice President of Innovative Computer Engineering Students' Society, leading initiatives to bridge academia and industry while fostering student development.",
+      responsibilities: [
+        "Coordinated executive meetings and strategic planning",
+        "Fostered industry partnerships for internship opportunities",
+        "Organized technical workshops and hackathons",
+        "Enhanced member engagement and participation"
+      ],
+      skills: ["Leadership", "Event Management", "Industry Relations", "Team Coordination"],
+      image: "/api/placeholder/400/300",
+      gallery: ["/api/placeholder/300/200", "/api/placeholder/300/200", "/api/placeholder/300/200"]
+    },
+    {
+      title: "Talk with Tech Leaders",
+      role: "Event Coordinator",
+      date: "2023",
+      location: "Pashchimanchal Campus",
+      type: "Coordinator",
+      description: "Coordinated a one-day event bringing together industry leaders and students, facilitating knowledge sharing and networking opportunities.",
+      responsibilities: [
+        "Organized event logistics and scheduling",
+        "Coordinated with tech industry speakers",
+        "Developed promotional materials and strategies",
+        "Managed on-site event execution"
+      ],
+      skills: ["Event Coordination", "Speaker Management", "Promotion", "Logistics"],
+      image: "/api/placeholder/400/300",
+      gallery: ["/api/placeholder/300/200", "/api/placeholder/300/200"]
+    },
+    {
+      title: "15th IOE Graduate Conference",
+      role: "Master of Ceremony",
+      date: "2023",
+      location: "Institute of Engineering",
+      type: "Participant",
+      description: "Served as Master of Ceremony for the prestigious IOE Graduate Conference, ensuring smooth event flow and professional presentation.",
+      responsibilities: [
+        "Coordinated event flow and timeline management",
+        "Introduced speakers and managed transitions",
+        "Maintained professional atmosphere throughout conference",
+        "Handled unexpected situations with composure"
+      ],
+      skills: ["Public Speaking", "Event Management", "Communication", "Time Management"],
+      image: "/api/placeholder/400/300",
+      gallery: ["/api/placeholder/300/200", "/api/placeholder/300/200"]
+    }
+  ];
+
   const blogPosts = [
     {
       title: "Getting Started with VHDL Programming",
@@ -191,8 +304,17 @@ const OnePagePortfolio = () => {
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically handle form submission
     alert('Thank you for your message! I\'ll get back to you soon.');
+  };
+
+  const getRoleIcon = (type) => {
+    switch(type) {
+      case 'Organizer': return faTools;
+      case 'Leadership': return faUsers;
+      case 'Coordinator': return faHandshake;
+      case 'Participant': return faUser;
+      default: return faCalendarCheck;
+    }
   };
 
   return (
@@ -343,6 +465,80 @@ const OnePagePortfolio = () => {
                         <span key={techIndex} className="tech-tag">{tech}</span>
                       ))}
                     </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Events Section */}
+        <section id="events" className="events-section">
+          <div className="container">
+            <div className="section-header">
+              <h2>Events & Leadership</h2>
+              <div className="section-line"></div>
+              <p>My journey in organizing, leading, and participating in tech events</p>
+            </div>
+            <div className="events-timeline">
+              {events.map((event, index) => (
+                <div key={index} className="event-card">
+                  <div className="event-image">
+                    <img src={event.image} alt={event.title} />
+                    <div className="event-type">
+                      <FontAwesomeIcon icon={getRoleIcon(event.type)} />
+                      {event.type}
+                    </div>
+                  </div>
+                  <div className="event-content">
+                    <div className="event-header">
+                      <div className="event-meta">
+                        <span className="event-date">
+                          <FontAwesomeIcon icon={faCalendarAlt} />
+                          {event.date}
+                        </span>
+                        <span className="event-location">
+                          <FontAwesomeIcon icon={faMapMarkerAlt} />
+                          {event.location}
+                        </span>
+                      </div>
+                      <h3>{event.title}</h3>
+                      <div className="event-role">
+                        <FontAwesomeIcon icon={faAward} />
+                        {event.role}
+                      </div>
+                    </div>
+                    
+                    <p className="event-description">{event.description}</p>
+                    
+                    <div className="event-responsibilities">
+                      <h4>Key Responsibilities:</h4>
+                      <ul>
+                        {event.responsibilities.map((responsibility, respIndex) => (
+                          <li key={respIndex}>{responsibility}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="event-skills">
+                      <h4>Skills Developed:</h4>
+                      <div className="skills-tags">
+                        {event.skills.map((skill, skillIndex) => (
+                          <span key={skillIndex} className="skill-tag">{skill}</span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {event.gallery && (
+                      <div className="event-gallery">
+                        <h4>Event Gallery:</h4>
+                        <div className="gallery-grid">
+                          {event.gallery.map((photo, photoIndex) => (
+                            <img key={photoIndex} src={photo} alt={`${event.title} photo ${photoIndex + 1}`} />
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}

@@ -103,6 +103,12 @@
                 }
             }
 
+            &.events-link {
+                &:after {
+                    content: 'EVENTS';
+                }
+            }
+
             &.achievements-link {
                 &:after {
                     content: 'ACHIEVEMENTS';
