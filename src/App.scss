@@ -1,27 +1,120 @@
 
-// Uesd in website: #022c43
-
-$primary-color-y:#ffd700;
-$primary-color-ly:#fbf8be;
-$primary-color-b:#022c43;
+// Color variables
+$primary-color-y: #ffd700;
+$primary-color-ly: #fbf8be;
+$primary-color-b: #022c43;
+$background-color: #0a192f;
+$text-color: #ffffff;
+$text-secondary: #8892b0;
 
 @import 'animate.css';
 
+// Font faces
 @font-face {
-  font-family:'Helvetica Neue' ;
-  src: url('./assets/fonts/helvetica-neu.ttf') format('ttf');
- }
-
- @font-face {
-  font-family:'La Bella Aurore' ;
-  src: url('./assets/fonts/LaBelleAurore.woff2') format('woff2');
- }
-
- @font-face {
-  font-family:'Coolvetica' ;
-  src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2');
- }
-
- input, textarea{
   font-family: 'Helvetica Neue';
- }
+  src: url('./assets/fonts/helvetica-neu.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'La Belle Aurore';
+  src: url('./assets/fonts/LaBelleAurore.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2');
+}
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $background-color;
+  color: $text-color;
+  overflow-x: hidden;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
+// Main content area (offset for sidebar)
+.one-page-portfolio {
+  margin-left: 80px;
+  
+  @media screen and (max-width: 1200px) {
+    margin-left: 0;
+  }
+}
+
+// Input and textarea styles
+input, textarea {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+// Utility classes
+.text-animate {
+  display: inline-block;
+  opacity: 0;
+  animation: bounceIn 1s 1s;
+  animation-fill-mode: forwards;
+  min-height: 60px;
+}
+
+.text-animate-hover {
+  min-height: 60px;
+  
+  &:hover {
+    animation: rubberBand 1s;
+    color: $primary-color-y;
+  }
+}
+
+// Animation for text elements
+@for $i from 1 through 35 {
+  .text-animate._#{$i} {
+    animation-delay: #{$i / 10}s;
+  }
+}
+
+// Loader adjustments
+.loader-hidden {
+  display: none;
+}
+
+.loader-active {
+  display: block;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $primary-color-b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary-color-y;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: lighten($primary-color-y, 10%);
+}
