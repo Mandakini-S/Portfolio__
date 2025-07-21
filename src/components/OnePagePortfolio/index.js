@@ -11,7 +11,11 @@ import {
   faGitAlt,
   faGithub,
   faLinkedin,
-  faTwitter
+  faTwitter,
+  faMedium,
+  faAws,
+  faDocker,
+  faLinux
 } from '@fortawesome/free-brands-svg-icons';
 import { 
   faEnvelope, 
@@ -20,7 +24,16 @@ import {
   faDownload,
   faExternalLinkAlt,
   faCode,
-  faArrowUp
+  faArrowUp,
+  faMicrochip,
+  faWifi,
+  faDatabase,
+  faGraduationCap,
+  faTrophy,
+  faBlog,
+  faCalendarAlt,
+  faUser,
+  faBookOpen
 } from '@fortawesome/free-solid-svg-icons';
 import Loader from 'react-loaders';
 
@@ -28,7 +41,7 @@ const OnePagePortfolio = () => {
   const [letterClass, setLetterClass] = useState('text-animate');
   const [showScrollTop, setShowScrollTop] = useState(false);
   const nameArray = ['M', 'a', 'n', 'd', 'a', 'k', 'i', 'n', 'i'];
-  const jobArray = ['F', 'u', 'l', 'l', ' ', 'S', 't', 'a', 'c', 'k', ' ', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r'];
+  const jobArray = ['E', 'C', 'E', ' ', 'S', 't', 'u', 'd', 'e', 'n', 't', ' ', '&', ' ', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r'];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -56,44 +69,129 @@ const OnePagePortfolio = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
-      technologies: ["React", "Node.js", "MongoDB", "Express"],
+      title: "Non-Invasive Glucose Monitoring System",
+      description: "Final year project implementing Near-Infrared (NIR) technique for glucose monitoring with mobile app integration. Combines hardware design with software development.",
+      technologies: ["NIR Technology", "Mobile App", "Embedded Systems", "Signal Processing"],
       github: "#",
       live: "#",
-      image: "/api/placeholder/400/250"
+      image: "/api/placeholder/400/250",
+      type: "Hardware + Software"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      technologies: ["React", "Socket.io", "PostgreSQL", "Node.js"],
-      github: "#",
+      title: "Self-Checkout System in Library using NFC",
+      description: "An innovative library management system using NFC technology for automated book checkout and return processes.",
+      technologies: ["NFC", "Database", "System Design", "IoT"],
+      github: "https://github.com/Mandakini-S/Self-checkout-system-in-Library",
       live: "#",
-      image: "/api/placeholder/400/250"
+      image: "/api/placeholder/400/250",
+      type: "IoT Project"
     },
     {
-      title: "Weather Dashboard",
-      description: "A responsive weather dashboard that displays current weather and forecasts using external APIs with beautiful data visualizations.",
-      technologies: ["JavaScript", "Chart.js", "REST APIs", "CSS3"],
-      github: "#",
+      title: "Hospital Management System (CareConnect)",
+      description: "Comprehensive database development for hospital management with patient records, appointment scheduling, and staff management.",
+      technologies: ["Database Design", "MySQL", "System Architecture"],
+      github: "https://github.com/Mandakini-S/Careconnect_hms",
       live: "#",
-      image: "/api/placeholder/400/250"
+      image: "/api/placeholder/400/250",
+      type: "Database Project"
+    },
+    {
+      title: "SubhaYatra - BIC Hackathon Winner",
+      description: "Award-winning travel application that won BIC Hackathon V 3.0. Focused on frontend development and user experience design.",
+      technologies: ["React.js", "Frontend", "UI/UX", "Collaboration"],
+      github: "https://github.com/Mandakini-S/ShubaYatra",
+      live: "#",
+      image: "/api/placeholder/400/250",
+      type: "Hackathon Winner"
+    },
+    {
+      title: "VHDL Programming Projects",
+      description: "Collection of VHDL programming projects demonstrating digital system design and hardware description language skills.",
+      technologies: ["VHDL", "Digital Design", "FPGA", "Hardware"],
+      github: "https://github.com/Mandakini-S/VHDL_CODE",
+      live: "#",
+      image: "/api/placeholder/400/250",
+      type: "Hardware Design"
     }
   ];
 
   const skills = [
-    { name: "HTML5", icon: faHtml5, level: 95 },
-    { name: "CSS3", icon: faCss3, level: 90 },
-    { name: "JavaScript", icon: faJsSquare, level: 85 },
-    { name: "React", icon: faReact, level: 88 },
-    { name: "Node.js", icon: faNodeJs, level: 80 },
-    { name: "Git", icon: faGitAlt, level: 85 }
+    { name: "React.js", icon: faReact, level: 85, category: "Frontend" },
+    { name: "C/C++", icon: faCode, level: 90, category: "Programming" },
+    { name: "VHDL", icon: faMicrochip, level: 80, category: "Hardware" },
+    { name: "Git/GitHub", icon: faGitAlt, level: 88, category: "Tools" },
+    { name: "AWS Cloud", icon: faAws, level: 75, category: "Cloud" },
+    { name: "MySQL/PostgreSQL", icon: faDatabase, level: 82, category: "Database" },
+    { name: "Docker", icon: faDocker, level: 70, category: "DevOps" },
+    { name: "Linux", icon: faLinux, level: 78, category: "OS" },
+    { name: "IoT & Embedded", icon: faWifi, level: 85, category: "Hardware" }
+  ];
+
+  const achievements = [
+    {
+      title: "IOE Merit Scholarship",
+      description: "Institute of Engineering, Tribhuvan University Merit Scholarship recipient (2021-2025)",
+      icon: faGraduationCap,
+      year: "2021-2025"
+    },
+    {
+      title: "BIC Hackathon V 3.0 Winner",
+      description: "Won with 'SubhaYatra' project, contributing to idea curation, data collection, and frontend development",
+      icon: faTrophy,
+      year: "2024"
+    },
+    {
+      title: "Top 60 Consistent Learner",
+      description: "Selected as one of top 60 learners out of 165 in Leapfrog Technology's 60-day learning challenge",
+      icon: faBookOpen,
+      year: "2024"
+    },
+    {
+      title: "AWS Certified Cloud Practitioner",
+      description: "Successfully obtained AWS Cloud Practitioner certification (CLF-C02)",
+      icon: faAws,
+      year: "2024"
+    }
+  ];
+
+  const blogPosts = [
+    {
+      title: "Getting Started with VHDL Programming",
+      excerpt: "A beginner's guide to VHDL programming for digital system design and FPGA development...",
+      date: "2024-03-15",
+      readTime: "5 min read",
+      tags: ["VHDL", "Hardware", "FPGA"],
+      image: "/api/placeholder/300/200"
+    },
+    {
+      title: "Building IoT Projects with NFC Technology",
+      excerpt: "Learn how to implement NFC technology in IoT projects, from library systems to smart applications...",
+      date: "2024-02-28",
+      readTime: "8 min read",
+      tags: ["IoT", "NFC", "Embedded"],
+      image: "/api/placeholder/300/200"
+    },
+    {
+      title: "My Journey to AWS Cloud Practitioner Certification",
+      excerpt: "Tips and resources that helped me pass the AWS Cloud Practitioner exam and kickstart my cloud journey...",
+      date: "2024-01-20",
+      readTime: "6 min read",
+      tags: ["AWS", "Cloud", "Certification"],
+      image: "/api/placeholder/300/200"
+    },
+    {
+      title: "React.js Best Practices for Students",
+      excerpt: "Essential React.js patterns and practices I learned during my mentorship program and projects...",
+      date: "2024-01-10",
+      readTime: "7 min read",
+      tags: ["React", "Frontend", "JavaScript"],
+      image: "/api/placeholder/300/200"
+    }
   ];
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
     // Here you would typically handle form submission
-    // For now, we'll just show an alert
     alert('Thank you for your message! I\'ll get back to you soon.');
   };
 
@@ -114,9 +212,13 @@ const OnePagePortfolio = () => {
               <br />
               <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={22} />
             </h1>
-            <h2>Frontend Developer / JavaScript Expert / Youtuber</h2>
+            <h2>Electronics & Communication Engineering Student | React Developer | Tech Enthusiast</h2>
+            <p className="hero-description">
+              Final year ECE student at IOE, Tribhuvan University with passion for embedded systems, 
+              web development, and innovative technology solutions.
+            </p>
             <div className="hero-buttons">
-              <a href="#contact" className="flat-button">CONTACT ME</a>
+              <a href="#contact" className="flat-button">GET IN TOUCH</a>
               <a href="/resume.pdf" className="flat-button secondary" download>
                 <FontAwesomeIcon icon={faDownload} /> DOWNLOAD CV
               </a>
@@ -138,33 +240,41 @@ const OnePagePortfolio = () => {
             <div className="about-content">
               <div className="about-text">
                 <p>
-                  I'm a passionate Full Stack Developer with over 3 years of experience creating 
-                  digital solutions that make a difference. I specialize in modern web technologies 
-                  and love turning complex problems into simple, beautiful designs.
+                  I'm a final year Electronics & Communication Engineering student at Institute of Engineering, 
+                  Tribhuvan University, Pashchimanchal Campus. My journey combines the precision of hardware 
+                  engineering with the creativity of software development.
                 </p>
                 <p>
-                  My journey in web development started with a curiosity about how websites work, 
-                  and it has evolved into a career where I get to build amazing digital experiences 
-                  every day. I'm always eager to learn new technologies and take on challenging projects.
+                  From designing non-invasive glucose monitoring systems using NIR technology to developing 
+                  React applications, I love bridging the gap between hardware and software. I'm passionate 
+                  about IoT, embedded systems, and creating technology solutions that make a real impact.
                 </p>
+                <div className="education-info">
+                  <h3><FontAwesomeIcon icon={faGraduationCap} /> Education</h3>
+                  <div className="education-item">
+                    <h4>BE in Electronics, Communication and Information Engineering</h4>
+                    <p>Institute of Engineering, Tribhuvan University (2021-2025)</p>
+                    <span className="merit">Merit Scholarship Recipient</span>
+                  </div>
+                </div>
                 <div className="about-stats">
                   <div className="stat">
-                    <h3>50+</h3>
+                    <h3>15+</h3>
                     <p>Projects Completed</p>
                   </div>
                   <div className="stat">
                     <h3>3+</h3>
-                    <p>Years Experience</p>
+                    <p>Years Learning</p>
                   </div>
                   <div className="stat">
-                    <h3>25+</h3>
-                    <p>Happy Clients</p>
+                    <h3>5+</h3>
+                    <p>Certifications</p>
                   </div>
                 </div>
               </div>
               <div className="about-image">
                 <div className="image-container">
-                  <img src="/api/placeholder/400/500" alt="About me" />
+                  <img src="/api/placeholder/400/500" alt="Mandakini Sapkota" />
                 </div>
               </div>
             </div>
@@ -186,6 +296,7 @@ const OnePagePortfolio = () => {
                       <FontAwesomeIcon icon={skill.icon} />
                     </div>
                     <h3>{skill.name}</h3>
+                    <span className="skill-category">{skill.category}</span>
                     <div className="skill-bar">
                       <div 
                         className="skill-progress" 
@@ -212,6 +323,7 @@ const OnePagePortfolio = () => {
                 <div key={index} className="project-card">
                   <div className="project-image">
                     <img src={project.image} alt={project.title} />
+                    <div className="project-type">{project.type}</div>
                     <div className="project-overlay">
                       <div className="project-links">
                         <a href={project.github} target="_blank" rel="noopener noreferrer">
@@ -238,44 +350,116 @@ const OnePagePortfolio = () => {
           </div>
         </section>
 
+        {/* Achievements Section */}
+        <section id="achievements" className="achievements-section">
+          <div className="container">
+            <div className="section-header">
+              <h2>Achievements & Recognition</h2>
+              <div className="section-line"></div>
+            </div>
+            <div className="achievements-grid">
+              {achievements.map((achievement, index) => (
+                <div key={index} className="achievement-card">
+                  <div className="achievement-icon">
+                    <FontAwesomeIcon icon={achievement.icon} />
+                  </div>
+                  <div className="achievement-content">
+                    <span className="achievement-year">{achievement.year}</span>
+                    <h3>{achievement.title}</h3>
+                    <p>{achievement.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Blog Section */}
+        <section id="blog" className="blog-section">
+          <div className="container">
+            <div className="section-header">
+              <h2>Latest Blog Posts</h2>
+              <div className="section-line"></div>
+              <p>Sharing my learning journey and technical insights</p>
+            </div>
+            <div className="blog-grid">
+              {blogPosts.map((post, index) => (
+                <article key={index} className="blog-card">
+                  <div className="blog-image">
+                    <img src={post.image} alt={post.title} />
+                    <div className="blog-date">
+                      <FontAwesomeIcon icon={faCalendarAlt} />
+                      {new Date(post.date).toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        day: 'numeric',
+                        year: 'numeric'
+                      })}
+                    </div>
+                  </div>
+                  <div className="blog-content">
+                    <h3>{post.title}</h3>
+                    <p>{post.excerpt}</p>
+                    <div className="blog-meta">
+                      <span className="read-time">{post.readTime}</span>
+                      <div className="blog-tags">
+                        {post.tags.map((tag, tagIndex) => (
+                          <span key={tagIndex} className="blog-tag">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <a href="#" className="read-more">
+                      Read More <FontAwesomeIcon icon={faExternalLinkAlt} />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="blog-cta">
+              <a href="#" className="flat-button">
+                <FontAwesomeIcon icon={faBlog} /> View All Posts
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Contact Section */}
         <section id="contact" className="contact-section">
           <div className="container">
             <div className="section-header">
-              <h2>Get In Touch</h2>
+              <h2>Let's Connect</h2>
               <div className="section-line"></div>
             </div>
             <div className="contact-content">
               <div className="contact-info">
-                <h3>Let's work together!</h3>
+                <h3>Ready to collaborate!</h3>
                 <p>
-                  I'm always interested in new opportunities and exciting projects. 
-                  Whether you have a question or just want to say hi, I'll try my best 
-                  to get back to you!
+                  I'm always excited to discuss new opportunities, collaborate on interesting projects, 
+                  or simply chat about technology. Whether it's about embedded systems, web development, 
+                  or innovative tech solutions, let's connect!
                 </p>
                 <div className="contact-details">
                   <div className="contact-item">
                     <FontAwesomeIcon icon={faEnvelope} />
-                    <span>mandakini@example.com</span>
+                    <span>mandakinisapkota@gmail.com</span>
                   </div>
                   <div className="contact-item">
                     <FontAwesomeIcon icon={faPhone} />
-                    <span>+977 9876543210</span>
+                    <span>+977 9846828621</span>
                   </div>
                   <div className="contact-item">
                     <FontAwesomeIcon icon={faMapMarkerAlt} />
-                    <span>Kathmandu, Nepal</span>
+                    <span>Pokhara, Nepal</span>
                   </div>
                 </div>
                 <div className="social-links">
-                  <a href="https://github.com/Mandakini-S" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/Mandakini-S" target="_blank" rel="noopener noreferrer" title="GitHub">
                     <FontAwesomeIcon icon={faGithub} />
                   </a>
-                  <a href="https://www.linkedin.com/in/mandakini-sapkota-945164232/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/mandakini-sapkota-945164232/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                     <FontAwesomeIcon icon={faLinkedin} />
                   </a>
-                  <a href="https://twitter.com/mandakini_09/" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faTwitter} />
+                  <a href="#" target="_blank" rel="noopener noreferrer" title="Medium">
+                    <FontAwesomeIcon icon={faMedium} />
                   </a>
                 </div>
               </div>

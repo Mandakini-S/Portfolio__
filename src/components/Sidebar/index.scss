@@ -103,6 +103,18 @@
                 }
             }
 
+            &.achievements-link {
+                &:after {
+                    content: 'ACHIEVEMENTS';
+                }
+            }
+
+            &.blog-link {
+                &:after {
+                    content: 'BLOG';
+                }
+            }
+
             &.contact-link {
                 &:after {
                     content: 'CONTACT';

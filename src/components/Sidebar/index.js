@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import './index.scss'
 import LogoS from '../../assets/images/MS_logo-07.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faPenNib, faUser, faCode, faEnvelope, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedin, faTwitter} from '@fortawesome/free-brands-svg-icons'
+import { faHome, faPenNib, faUser, faCode, faEnvelope, faBars, faTimes, faTrophy, faBlog } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin, faMedium} from '@fortawesome/free-brands-svg-icons'
 
 const Sidebar = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -20,7 +20,7 @@ const Sidebar = () => {
   // Detect active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'skills', 'projects', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'projects', 'achievements', 'blog', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -94,6 +94,24 @@ const Sidebar = () => {
             </a>
 
             <a 
+              href="#achievements" 
+              className={`nav-link achievements-link ${activeSection === 'achievements' ? 'active' : ''}`}
+              onClick={(e) => { e.preventDefault(); scrollToSection('achievements'); }}
+              title="Achievements"
+            >
+                <FontAwesomeIcon icon={faTrophy} color="4d4d4e" />
+            </a>
+
+            <a 
+              href="#blog" 
+              className={`nav-link blog-link ${activeSection === 'blog' ? 'active' : ''}`}
+              onClick={(e) => { e.preventDefault(); scrollToSection('blog'); }}
+              title="Blog"
+            >
+                <FontAwesomeIcon icon={faBlog} color="4d4d4e" />
+            </a>
+
+            <a 
               href="#contact" 
               className={`nav-link contact-link ${activeSection === 'contact' ? 'active' : ''}`}
               onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
@@ -117,8 +135,8 @@ const Sidebar = () => {
             </li>
 
             <li>
-                <a target="_blank" rel="noreferrer" href="https://twitter.com/mandakini_09/" title="Twitter"> 
-                    <FontAwesomeIcon icon={faTwitter} color="#4d4d4e" /> 
+                <a target="_blank" rel="noreferrer" href="#" title="Medium"> 
+                    <FontAwesomeIcon icon={faMedium} color="#4d4d4e" /> 
                 </a>
             </li>
         </ul>
