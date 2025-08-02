@@ -1,20 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.2044a82d.css",
-    "main.js": "/static/js/main.95c7bc53.js",
+    "main.css": "/static/css/main.84bb9495.css",
+    "main.js": "/static/js/main.24dc479c.js",
     "static/js/787.202b8111.chunk.js": "/static/js/787.202b8111.chunk.js",
-    "static/media/MS_logo-06.png": "/static/media/MS_logo-06.4f06aa74643a090c7585.png",
     "static/media/MS_logo-07.png": "/static/media/MS_logo-07.1b7b8d48f605659090ae.png",
     "static/media/helvetica-neu.ttf": "/static/media/helvetica-neu.8a19678078a6b21c8057.ttf",
     "static/media/LaBelleAurore.woff2": "/static/media/LaBelleAurore.a83c1c58fd7e43972e4a.woff2",
     "static/media/CoolveticaRg-Regular.woff2": "/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/index.html",
-    "main.2044a82d.css.map": "/static/css/main.2044a82d.css.map",
-    "main.95c7bc53.js.map": "/static/js/main.95c7bc53.js.map",
+    "main.84bb9495.css.map": "/static/css/main.84bb9495.css.map",
+    "main.24dc479c.js.map": "/static/js/main.24dc479c.js.map",
     "787.202b8111.chunk.js.map": "/static/js/787.202b8111.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2044a82d.css",
-    "static/js/main.95c7bc53.js"
+    "static/css/main.84bb9495.css",
+    "static/js/main.24dc479c.js"
   ]
 }

@@ -1,22 +1,6 @@
-:root{
---primary-color-y:#ffd700;
---primary-color-ly:#fbf8be;
---primary-color-b:#022c43;
-}
-
-html{
-  font-size: 62.5%;
-
-}
-
+/* Keep this file minimal. Most global styles will go in App.scss */
 body {
   margin: 0;
-  font: 300 11px/1.4 'Helvetica Neue','sans-serif' 'La Belle ';
-   color:#444;
-   background: var(--primary-color-ly);
-   overflow: hidden;
-   display: block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-

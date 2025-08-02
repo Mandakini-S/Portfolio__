@@ -1,17 +1,16 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Sidebar from '../Sidebar/'
-import './index.scss'
+import React from 'react';
+import Sidebar from '../Sidebar/';
+import './index.scss';
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
-    <div className="App">
+    <div className="app-layout">
       <Sidebar />
-      <div className="page">
-       <Outlet />         
-      </div>
+      <main className="page-content">
+        {children}
+      </main>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
