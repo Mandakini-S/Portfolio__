@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AnimatedLetters from '../AnimatedLetters';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAws, faDocker, faGitAlt, faGithub, faLinkedin, faMedium, faReact } from '@fortawesome/free-brands-svg-icons';
-import { faBookOpen, faCalendarAlt, faCalendarCheck, faCode, faDatabase, faDownload, faEnvelope, faExternalLinkAlt, faGraduationCap, faMapMarkerAlt, faMicrochip, faTools, faTrophy, faUsers, faArrowUp, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpen, faCalendarAlt, faCalendarCheck, faCode, faDatabase, faDownload, faEnvelope, faExternalLinkAlt, faGraduationCap, faMapMarkerAlt, faMicrochip, faPhone, faTools, faTrophy, faUsers, faArrowUp, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import './index.scss';
 
 const OnePagePortfolio = () => {
@@ -10,13 +10,13 @@ const OnePagePortfolio = () => {
     const [showScrollTop, setShowScrollTop] = useState(false);
     const nameArray = ['M', 'a', 'n', 'd', 'a', 'k', 'i', 'n', 'i'];
     
-    // const jobString = "Electronics engineering graduate & cloud enthusiast";
-    // const jobArray = jobString.replace(/ /g, '\u00A0').split('');
+    const jobString = "Electronics engineering graduate & cloud enthusiast";
+    const jobArray = jobString.replace(/ /g, '\u00A0').split('');
 
     const projects = [ { title: "Non-Invasive Glucose Monitoring", description: "Final year project implementing Near-Infrared (NIR) technique for glucose monitoring with mobile app integration.", technologies: ["NIR Tech", "Mobile App", "Embedded"], github: "#!", live: "#!", image: "https://placehold.co/400x250/1e2749/ffd700?text=Project", type: "Hardware+Software" }, { title: "Self-Checkout System in Library", description: "An innovative library management system using NFC technology for automated book checkout and return processes.", technologies: ["NFC", "Database", "IoT"], github: "https://github.com/Mandakini-S/Self-checkout-system-in-Library", live: "#!", image: "https://placehold.co/400x250/1e2749/ffd700?text=Project", type: "IoT Project" }, { title: "Hospital Management System", description: "Comprehensive database development for hospital management with patient records, appointment scheduling, and staff management.", technologies: ["MySQL", "System Design"], github: "https://github.com/Mandakini-S/Careconnect_hms", live: "#!", image: "https://placehold.co/400x250/1e2749/ffd700?text=Project", type: "Database Project" }, ];
-    const skills = [ { name: "React.js", icon: faReact, level: 85, category: "Frontend" }, { name: "C/C++", icon: faCode, level: 90, category: "Programming" }, { name: "VHDL", icon: faMicrochip, level: 80, category: "Hardware" }, { name: "Git/GitHub", icon: faGitAlt, level: 88, category: "Tools" }, { name: "AWS Cloud", icon: faAws, level: 75, category: "Cloud" }, { name: "MySQL/PostgreSQL", icon: faDatabase, level: 82, category: "Database" }, { name: "Docker", icon: faDocker, level: 70, category: "DevOps" }, ];
+    const skills = [ { name: "React.js", icon: faReact, category: "Frontend" }, { name: "C/C++", icon: faCode, category: "Programming" }, { name: "VHDL", icon: faMicrochip, category: "Hardware" }, { name: "Git/GitHub", icon: faGitAlt, category: "Tools" }, { name: "AWS Cloud", icon: faAws, category: "Cloud" }, { name: "MySQL/PostgreSQL", icon: faDatabase, category: "Database" }, { name: "Docker", icon: faDocker, category: "DevOps" }, ];
     const achievements = [{ title: "BIC Hackathon V 3.0 Winner", description: "Won with 'SubhaYatra' project, contributing to idea curation, data collection, and frontend development", icon: faTrophy, year: "2023" }, { title: "IOE Merit Scholarship", description: "Institute of Engineering, Tribhuvan University Merit Scholarship recipient (2021-2025)", icon: faGraduationCap, year: "2021-2025" }, { title: "Top 60 Consistent Learner", description: "Selected as one of top 60 learners in Leapfrog Technology's 60-day learning challenge", icon: faBookOpen, year: "2024" }];
-    const certificates = [ { title: "AWS Certified Cloud Practitioner", description: "Successfully obtained AWS Cloud Practitioner certification (CLF-C02), validating foundational cloud knowledge.", issuer: "Amazon Web Services", year: "2024", icon: faAws }, { title: "Foundations of Cybersecurity", description: "Completed Google's foundational course on cybersecurity principles and practices.", issuer: "Google on Coursera", year: "2023", icon: faShieldAlt } ];
+    const certificates = [ { title: "AWS Certified Cloud Practitioner", description: "Successfully obtained AWS Cloud Practitioner certification (CLF-C02), validating foundational cloud knowledge.", issuer: "Amazon Web Services", year: "2025", icon: faAws }, { title: "Hands-on Introduction to Linux Commands and Shell Scripting", description: "Learn bash scripting skill", issuer: "Coursera", year: "2023", icon: faShieldAlt } ];
     const events = [ { title: "EthosHack - National Hackathon", role: "Software Manager & Organizer", date: "2024", location: "Pashchimanchal Campus", type: "Organizer", description: "Led the technical aspects of a national hackathon, overseeing GitHub repositories and providing real-time technical support.", image: "https://placehold.co/400x300/1e2749/ffffff?text=Event" }, { title: "Sagarmatha Hacktoberfest 2023", role: "Lead Graphics Designer & Organizer", date: "October 2023", location: "Nepal", type: "Organizer", description: "Spearheaded the visual identity and promotional strategy for Hacktoberfest 2023, creating engaging designs that boosted participation.", image: "https://placehold.co/400x300/1e2749/ffffff?text=Event" }, ];
     const blogPosts = [ { title: "Creating Your First Azure Virtual Machine: A Super Simple Beginner’s Guide", excerpt: "A beginner's guide to create VM in azure.", date: "Jul 12, 2025", readTime: "9 min read", tags: ["VM", "Azure", "Cloud"], image: "https://placehold.co/300x200/1e2749/ffffff?text=Blog" }, { title: "How to Access Your Ubuntu VM from Windows or Ubuntu (Beginner-Friendly Guide)", excerpt: "Learn how to access your Ubuntu VM", date: "JUl 14, 2025", readTime: "6 min read", tags: ["VM", "Azure", "Cloud"], image: "https://placehold.co/300x200/1e2749/ffffff?text=Blog" }, ];
 
@@ -50,7 +50,7 @@ const OnePagePortfolio = () => {
                             <span className={letterClass}>H</span><span className={`${letterClass} _12`}>i,</span><br />
                             <span className={`${letterClass} _13`}>I'm{'\u00A0'}</span>
                             <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={15} /> <br />
-                            {/* <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={22} /> */}
+                            <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={22} />
                         </h1>
                         <h2>Electronics Graduate | React Developer | Cloud Enthusiast</h2>
                         <p className="hero-description">Final year ECE student with a passion for embedded systems, web development, and innovative technology solutions.</p>
@@ -66,17 +66,39 @@ const OnePagePortfolio = () => {
                         <div className="section-header"><h2>About Me</h2></div>
                         <div className="about-content">
                             <div className="about-text">
-                                <p>I'm a final year Electronics & Communication Engineering student at IOE, Tribhuvan University. My journey combines the precision of hardware engineering with the creativity of software development.</p>
-                                <div className="education-info"><h3><FontAwesomeIcon icon={faGraduationCap} /> Education</h3><div className="education-item"><h4>BE in Electronics, Communication and Information Engineering</h4><p>Institute of Engineering, Tribhuvan University (2021-2025)</p><span className="merit">Merit Scholarship Recipient</span></div></div>
+                                <p>I'm a recent Electronics & Communication graduate passionate about cloud computing, Linux, web development, and cybersecurity. As an AWS Certified Cloud Practitioner, I’ve explored real-world tech through hands-on projects with React, Django, and IoT, while also mentoring others in Git and frontend tools. I thrive on building, automating, and learning in collaborative environments—and I love sharing that journey with others.</p>
+                                <div className="education-info">
+                                    <h3><FontAwesomeIcon icon={faGraduationCap} /> Education</h3>
+                                    <div className="education-item">
+                                        <h4>BE in Electronics, Communication and Information Engineering</h4>
+                                        <p>Institute of Engineering, Tribhuvan University (2021-2025)</p>
+                                        <span className="merit">Merit Scholarship Recipient</span>
+                                    </div>
+                                    <div className="education-item">
+                                        <h4>HSEB (High School)</h4>
+                                        <p>Angel’s Heart College, Manamaiju, Kathmandu​ (2018-2020)</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="about-image"><div className="image-container"><img src="https://placehold.co/400x500/0a192f/ffd700?text=Mandakini" alt="Mandakini Sapkota" /></div></div>
+                            <div className="about-image">
+                                <div className="image-container">
+                                    <img src="https://placehold.co/400x500/0a192f/ffd700?text=Mandakini" alt="Mandakini Sapkota" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
+
                 <section id="skills" className="skills-section">
                     <div className="container">
                         <div className="section-header"><h2>Skills & Technologies</h2></div>
-                        <div className="skills-grid">{skills.map((skill, index) => (<div key={index} className="skill-item"><div className="skill-icon"><FontAwesomeIcon icon={skill.icon} /></div><h3>{skill.name}</h3><span className="skill-category">{skill.category}</span><div className="skill-bar"><div className="skill-progress" style={{ width: `${skill.level}%` }}></div></div><span className="skill-percentage">{skill.level}%</span></div>))}</div>
+                        <div className="skills-grid">{skills.map((skill, index) => (
+                            <div key={index} className="skill-item">
+                                <div className="skill-icon"><FontAwesomeIcon icon={skill.icon} /></div>
+                                <h3>{skill.name}</h3>
+                                <span className="skill-category">{skill.category}</span>
+                            </div>
+                        ))}</div>
                     </div>
                 </section>
                 <section id="projects" className="projects-section">
@@ -128,9 +150,7 @@ const OnePagePortfolio = () => {
                             <div className="contact-info">
                                 <h3>Ready to collaborate!</h3>
                                 <p>I'm always excited to discuss new opportunities, collaborate on interesting projects, or simply chat about technology.</p>
-                                <div className="contact-details"><div className="contact-item"><FontAwesomeIcon icon={faEnvelope} /> <span>mandakinisapkota@gmail.com</span></div>
-                                {/* <div className="contact-item"><FontAwesomeIcon icon={faPhone} /> <span>+977 9846828621</span></div> */}
-                                <div className="contact-item"><FontAwesomeIcon icon={faMapMarkerAlt} /> <span>Pokhara, Nepal</span></div></div>
+                                <div className="contact-details"><div className="contact-item"><FontAwesomeIcon icon={faEnvelope} /> <span>mandakinisapkota@gmail.com</span></div><div className="contact-item"><FontAwesomeIcon icon={faPhone} /> <span>+977 9846828621</span></div><div className="contact-item"><FontAwesomeIcon icon={faMapMarkerAlt} /> <span>Pokhara, Nepal</span></div></div>
                                 <div className="social-links"><a href="https://github.com/Mandakini-S" target="_blank" rel="noopener noreferrer" title="GitHub"><FontAwesomeIcon icon={faGithub} /></a><a href="https://www.linkedin.com/in/mandakini-sapkota-945164232/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} /></a><a href="#!" target="_blank" rel="noopener noreferrer" title="Medium"><FontAwesomeIcon icon={faMedium} /></a></div>
                             </div>
                             <div className="contact-form">
