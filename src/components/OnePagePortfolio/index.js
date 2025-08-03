@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import AnimatedLetters from '../AnimatedLetters';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAws, faDocker, faGitAlt, faGithub, faLinkedin, faMedium, faReact } from '@fortawesome/free-brands-svg-icons';
-import { faBookOpen, faCalendarAlt, faCalendarCheck, faCode, faDatabase, faDownload, faEnvelope, faExternalLinkAlt, faGraduationCap, faMapMarkerAlt, faMicrochip, faPhone, faTools, faTrophy, faUsers, faArrowUp, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpen, faCalendarAlt, faCalendarCheck, faCode, faDatabase,faEnvelope, faExternalLinkAlt, faGraduationCap, faMapMarkerAlt, faMicrochip, faTools, faTrophy, faUsers, faArrowUp, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
+// import { faDownload, faPhone} from '@fortawesome/free-solid-svg-icons';
 import './index.scss';
 
 const OnePagePortfolio = () => {
@@ -10,8 +11,8 @@ const OnePagePortfolio = () => {
     const [showScrollTop, setShowScrollTop] = useState(false);
     const nameArray = ['M', 'a', 'n', 'd', 'a', 'k', 'i', 'n', 'i'];
     
-    const jobString = "Electronics engineering graduate & cloud enthusiast";
-    const jobArray = jobString.replace(/ /g, '\u00A0').split('');
+    // const jobString = "Electronics engineering graduate & cloud enthusiast";
+    // const jobArray = jobString.replace(/ /g, '\u00A0').split('');
 
     const projects = [ { title: "Non-Invasive Glucose Monitoring", description: "Final year project implementing Near-Infrared (NIR) technique for glucose monitoring with mobile app integration.", technologies: ["NIR Tech", "Mobile App", "Embedded"], github: "#!", live: "#!", image: "https://placehold.co/400x250/1e2749/ffd700?text=Project", type: "Hardware+Software" }, { title: "Self-Checkout System in Library", description: "An innovative library management system using NFC technology for automated book checkout and return processes.", technologies: ["NFC", "Database", "IoT"], github: "https://github.com/Mandakini-S/Self-checkout-system-in-Library", live: "#!", image: "https://placehold.co/400x250/1e2749/ffd700?text=Project", type: "IoT Project" }, { title: "Hospital Management System", description: "Comprehensive database development for hospital management with patient records, appointment scheduling, and staff management.", technologies: ["MySQL", "System Design"], github: "https://github.com/Mandakini-S/Careconnect_hms", live: "#!", image: "https://placehold.co/400x250/1e2749/ffd700?text=Project", type: "Database Project" }, ];
     const skills = [ { name: "React.js", icon: faReact, category: "Frontend" }, { name: "C/C++", icon: faCode, category: "Programming" }, { name: "VHDL", icon: faMicrochip, category: "Hardware" }, { name: "Git/GitHub", icon: faGitAlt, category: "Tools" }, { name: "AWS Cloud", icon: faAws, category: "Cloud" }, { name: "MySQL/PostgreSQL", icon: faDatabase, category: "Database" }, { name: "Docker", icon: faDocker, category: "DevOps" }, ];
@@ -50,13 +51,13 @@ const OnePagePortfolio = () => {
                             <span className={letterClass}>H</span><span className={`${letterClass} _12`}>i,</span><br />
                             <span className={`${letterClass} _13`}>I'm{'\u00A0'}</span>
                             <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={15} /> <br />
-                            <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={22} />
+                            {/* <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={22} /> */}
                         </h1>
                         <h2>Electronics Graduate | React Developer | Cloud Enthusiast</h2>
-                        <p className="hero-description">Final year ECE student with a passion for embedded systems, web development, and innovative technology solutions.</p>
+                        <p className="hero-description">Curious mind who loves creating, exploring, and occasionally getting lost in the joy of figuring things out.</p>
                         <div className="hero-buttons">
                             <a href="#contact" className="flat-button" onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }}>GET IN TOUCH</a>
-                            <a href="/resume.pdf" className="flat-button secondary" download><FontAwesomeIcon icon={faDownload} /> DOWNLOAD CV</a>
+                            {/* <a href="/resume.pdf" className="flat-button secondary" download><FontAwesomeIcon icon={faDownload} /> DOWNLOAD CV</a> */}
                         </div>
                     </div>
                 </section>
@@ -150,7 +151,10 @@ const OnePagePortfolio = () => {
                             <div className="contact-info">
                                 <h3>Ready to collaborate!</h3>
                                 <p>I'm always excited to discuss new opportunities, collaborate on interesting projects, or simply chat about technology.</p>
-                                <div className="contact-details"><div className="contact-item"><FontAwesomeIcon icon={faEnvelope} /> <span>mandakinisapkota@gmail.com</span></div><div className="contact-item"><FontAwesomeIcon icon={faPhone} /> <span>+977 9846828621</span></div><div className="contact-item"><FontAwesomeIcon icon={faMapMarkerAlt} /> <span>Pokhara, Nepal</span></div></div>
+                                <div className="contact-details"><div className="contact-item"><FontAwesomeIcon icon={faEnvelope} /> <span>mandakinisapkota@gmail.com</span></div>
+                                {/* <div className="contact-item"><FontAwesomeIcon icon={faPhone} /> 
+                                <span>+977 98XXXXXXXX</span></div> */}
+                                <div className="contact-item"><FontAwesomeIcon icon={faMapMarkerAlt} /> <span>Pokhara, Nepal</span></div></div>
                                 <div className="social-links"><a href="https://github.com/Mandakini-S" target="_blank" rel="noopener noreferrer" title="GitHub"><FontAwesomeIcon icon={faGithub} /></a><a href="https://www.linkedin.com/in/mandakini-sapkota-945164232/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} /></a><a href="#!" target="_blank" rel="noopener noreferrer" title="Medium"><FontAwesomeIcon icon={faMedium} /></a></div>
                             </div>
                             <div className="contact-form">
