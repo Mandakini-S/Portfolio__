@@ -27,8 +27,10 @@
     margin-bottom: 6rem;
     h2 {
       font-size: 3.2rem;
-      font-weight: 800; // Consistent bold headings
+      font-weight: 800;
       margin-bottom: 1.5rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
   }
 
@@ -38,8 +40,8 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center; // Horizontally center the content
-    text-align: center;      // Center the text inside the container
+    justify-content: center;
+    text-align: center;
     padding: 0 2rem;
 
     .text-zone {
@@ -52,6 +54,7 @@
       line-height: 1.1;
       font-family: 'Coolvetica', sans-serif;
       font-weight: 400;
+      letter-spacing: 4px;
       
       span {
         display: inline-block;
@@ -59,7 +62,7 @@
     }
 
     h2 {
-      color: #bdc4d7; // Lighter text color
+      color: #bdc4d7;
       margin-top: 2rem;
       font-weight: 600; 
       font-size: 2rem;
@@ -67,11 +70,12 @@
     }
 
     .hero-description {
-      color: #bdc4d7; // Lighter text color
+      color: #bdc4d7;
       font-size: 1.8rem;
       font-weight: 600; 
       margin: 2rem auto; 
       max-width: 600px;
+      letter-spacing: 2px; // This specific class retains its unique spacing
     }
 
     .hero-buttons {
@@ -125,7 +129,7 @@
     @media screen and (max-width: 576px) {
         h1 { font-size: 2.8rem; line-height: 1.2; }
         h2 { font-size: 1.6rem; letter-spacing: 1px; }
-        .hero-description { font-size: 1.6rem; }
+        .hero-description { font-size: 1.6rem; letter-spacing: 1px; }
     }
 
     @media screen and (max-width: 480px) {
@@ -143,10 +147,11 @@
       align-items: center;
       .about-text p {
         font-size: 1.8rem;
-        color: #bdc4d7; // Lighter text color
-        font-weight: 600; // Bolder font
+        color: #bdc4d7;
+        font-weight: 600;
         text-align: left;
         margin-bottom: 2rem;
+        letter-spacing: 1px; // Updated letter-spacing
       }
       .education-info {
         margin-top: 4rem;
@@ -154,9 +159,9 @@
         background: rgba(255, 215, 0, 0.05);
         border-left: 4px solid #ffd700;
         border-radius: 8px;
-        h3 { font-size: 2rem; margin-bottom: 1.5rem; }
-        h4 { font-size: 1.8rem; }
-        p { font-size: 1.6rem; color: #bdc4d7; margin: 0.5rem 0; } // Lighter text color
+        h3 { font-size: 2rem; margin-bottom: 1.5rem; letter-spacing: 1.5px; }
+        h4 { font-size: 1.8rem; letter-spacing: 1px; }
+        p { font-size: 1.6rem; color: #bdc4d7; margin: 0.5rem 0; letter-spacing: 1px; } // Applied letter-spacing
         .merit {
             background: #ffd700;
             color: #022c43;
@@ -164,6 +169,7 @@
             border-radius: 15px;
             font-size: 1.2rem;
             font-weight: bold;
+            letter-spacing: 1px;
         }
       }
       .education-item{
@@ -197,7 +203,7 @@
                 box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             }
             .skill-icon { font-size: 4rem; color: #ffd700; margin-bottom: 1.5rem; }
-            h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+            h3 { font-size: 1.8rem; margin-bottom: 1rem; letter-spacing: 1.5px; }
             .skill-category { 
               font-size: 1.2rem; 
               color: #ffd700; 
@@ -205,7 +211,7 @@
               letter-spacing: 1px; 
               margin-bottom: 1.5rem; 
               display: block;
-              font-weight: 600; // Bolder font
+              font-weight: 600;
             }
             .skill-bar { background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden; }
             .skill-progress { height: 100%; background: #ffd700; border-radius: 4px; }
@@ -214,7 +220,7 @@
               color: #ffd700; 
               margin-top: 1rem; 
               display: block;
-              font-weight: 600; // Bolder font
+              font-weight: 600;
             }
         }
     }
@@ -240,12 +246,13 @@
         }
         .project-content, .blog-content {
             padding: 2.5rem;
-            h3 { font-size: 2rem; margin-bottom: 1rem; }
+            h3 { font-size: 2rem; margin-bottom: 1rem; letter-spacing: 1.5px; }
             p { 
               font-size: 1.6rem; 
-              color: #bdc4d7; // Lighter text color
-              font-weight: 600; // Bolder font
-              margin-bottom: 2rem; 
+              color: #bdc4d7;
+              font-weight: 600;
+              margin-bottom: 2rem;
+              letter-spacing: 1px; // Applied letter-spacing
             }
         }
         .project-technologies {
@@ -256,7 +263,7 @@
               padding: .5rem 1rem; 
               border-radius: 15px; 
               font-size: 1.2rem;
-              font-weight: 600; // Bolder font
+              font-weight: 600;
             }
         }
         .project-overlay {
@@ -268,9 +275,10 @@
   }
 
   .blog-card .blog-content .read-more {
-    color: #ffd700; // Yellow color for the "Read More" link
+    color: #ffd700;
     font-weight: 600;
     text-decoration: none;
+    letter-spacing: 1px;
   }
 
   .events-section {
@@ -289,17 +297,19 @@
             }
             .event-image img { width: 100%; border-radius: 8px; }
             .event-content {
-                h3 { font-size: 2.2rem; margin-bottom: 1rem; }
-                .event-meta { display: flex; gap: 2rem; color: #bdc4d7; margin-bottom: 1rem; } // Lighter text color
+                h3 { font-size: 2.2rem; margin-bottom: 1rem; letter-spacing: 1.5px; }
+                .event-meta { display: flex; gap: 2rem; color: #bdc4d7; margin-bottom: 1rem; letter-spacing: 1px; }
                 .event-role { 
-                  font-weight: 700; // Bolder font
+                  font-weight: 700;
                   color: #ffd700; 
                   margin-bottom: 1.5rem; 
+                  letter-spacing: 1px;
                 }
                 p { 
                   font-size: 1.6rem; 
-                  color: #bdc4d7; // Lighter text color
-                  font-weight: 600; // Bolder font
+                  color: #bdc4d7;
+                  font-weight: 600;
+                  letter-spacing: 1px; // Applied letter-spacing
                 }
             }
         }
@@ -331,18 +341,21 @@
               font-size: 1.4rem; 
               color: #bdc4d7; 
               font-weight: 600; 
+              letter-spacing: 1px;
             }
-            h3 { font-size: 2rem; margin: 0.5rem 0; }
+            h3 { font-size: 2rem; margin: 0.5rem 0; letter-spacing: 1.5px; }
             p { 
               font-size: 1.6rem; 
               color: #bdc4d7; 
-              font-weight: 600; 
+              font-weight: 600;
+              letter-spacing: 1px; // Applied letter-spacing
             }
             .certificate-issuer {
                 font-style: italic;
                 font-size: 1.4rem;
                 margin-bottom: 1rem;
                 opacity: 0.8;
+                letter-spacing: 1px;
             }
         }
     }
@@ -355,15 +368,16 @@
         grid-template-columns: 1fr 1fr;
         gap: 5rem;
         .contact-info {
-            h3 { font-size: 2.4rem; }
+            h3 { font-size: 2.4rem; letter-spacing: 1.5px; }
             p { 
               font-size: 1.8rem; 
-              color: #bdc4d7; // Lighter text color
-              font-weight: 600; // Bolder font
+              color: #bdc4d7;
+              font-weight: 600;
               margin: 2rem 0; 
+              letter-spacing: 1px;
             }
-            .contact-details .contact-item { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; font-size: 1.6rem; svg { color: #ffd700; } }
-            .social-links { display: flex; gap: 2rem; margin-top: 3rem; a { font-size: 2.4rem; color: #bdc4d7; &:hover { color: #ffd700; } } } // Lighter text color
+            .contact-details .contact-item { display: flex;letter-spacing: 1.5px; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; font-size: 1.6rem; svg { color: #ffd700; } }
+            .social-links { display: flex; gap: 2rem; margin-top: 3rem; a { font-size: 2.4rem; color: #bdc4d7; &:hover { color: #ffd700; } } }
         }
         .contact-form {
             .form-group { margin-bottom: 2rem; }
@@ -375,6 +389,8 @@
                 border-radius: 8px;
                 color: #ffffff;
                 font-size: 1.6rem;
+                font-weight: 600;
+                letter-spacing: 2px;
                 &:focus { outline: none; border-color: #ffd700; }
             }
             textarea { resize: vertical; min-height: 120px; }
@@ -388,7 +404,7 @@
                 background: transparent;
                 cursor: pointer;
                 transition: all 0.3s ease;
-                font-weight: 800; // Bolder font
+                font-weight: 800;
                 &:hover { background: #ffd700; color: #022c43; }
             }
         }
