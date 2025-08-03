@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import AnimatedLetters from '../AnimatedLetters';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAws, faDocker, faGitAlt, faGithub, faLinkedin, faMedium, faReact } from '@fortawesome/free-brands-svg-icons';
-import { faBookOpen, faCalendarAlt, faCalendarCheck, faCode, faDatabase,faEnvelope, faExternalLinkAlt, faGraduationCap, faMapMarkerAlt, faMicrochip, faTools, faTrophy, faUsers, faArrowUp, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
-// import { faDownload, faPhone} from '@fortawesome/free-solid-svg-icons';
+import { faAws, faDocker, faGitAlt, faGithub, faLinkedin, faMedium, faReact, faPython, faLinux } from '@fortawesome/free-brands-svg-icons'; 
+import { faBookOpen, faCalendarAlt, faCalendarCheck, faCode, faDatabase,faEnvelope, faExternalLinkAlt, faGraduationCap, faMapMarkerAlt, faTasks, faTools, faTrophy, faUsers, faArrowUp, faShieldAlt, faTerminal, faCloud} from '@fortawesome/free-solid-svg-icons';
+// import { faDownload, faPhone, faMicrochip } from '@fortawesome/free-solid-svg-icons';
 import './index.scss';
 
 const OnePagePortfolio = () => {
@@ -15,11 +15,41 @@ const OnePagePortfolio = () => {
     // const jobArray = jobString.replace(/ /g, '\u00A0').split('');
 
     const projects = [ { title: "Non-Invasive Glucose Monitoring", description: "Final year project implementing Near-Infrared (NIR) technique for glucose monitoring with mobile app integration.", technologies: ["NIR Tech", "Mobile App", "Embedded"], github: "#!", live: "#!", image: "https://placehold.co/400x250/1e2749/ffd700?text=Project", type: "Hardware+Software" }, { title: "Self-Checkout System in Library", description: "An innovative library management system using NFC technology for automated book checkout and return processes.", technologies: ["NFC", "Database", "IoT"], github: "https://github.com/Mandakini-S/Self-checkout-system-in-Library", live: "#!", image: "https://placehold.co/400x250/1e2749/ffd700?text=Project", type: "IoT Project" }, { title: "Hospital Management System", description: "Comprehensive database development for hospital management with patient records, appointment scheduling, and staff management.", technologies: ["MySQL", "System Design"], github: "https://github.com/Mandakini-S/Careconnect_hms", live: "#!", image: "https://placehold.co/400x250/1e2749/ffd700?text=Project", type: "Database Project" }, ];
-    const skills = [ { name: "React.js", icon: faReact, category: "Frontend" }, { name: "C/C++", icon: faCode, category: "Programming" }, { name: "VHDL", icon: faMicrochip, category: "Hardware" }, { name: "Git/GitHub", icon: faGitAlt, category: "Tools" }, { name: "AWS Cloud", icon: faAws, category: "Cloud" }, { name: "MySQL/PostgreSQL", icon: faDatabase, category: "Database" }, { name: "Docker", icon: faDocker, category: "DevOps" }, ];
+    
+    const skills = [
+        { name: "React.js", icon: faReact, category: "Frontend" },
+        { name: "Django", icon: faPython, category: "Backend" },
+        { name: "C/C++", icon: faCode, category: "Programming" },
+        { name: "AWS", icon: faAws, category: "Cloud" },
+        { name: "Azure", icon: faCloud, category: "Cloud" },
+        { name: "Linux", icon: faLinux, category: "DevOps" },
+        { name: "Bash Scripting", icon: faTerminal, category: "DevOps" },
+        { name: "Docker", icon: faDocker, category: "DevOps" },
+        { name: "MySQL/PostgreSQL", icon: faDatabase, category: "Database" },
+        { name: "Git/GitHub", icon: faGitAlt, category: "Tools" },
+        { name: "Jira/ClickUp", icon: faTasks, category: "Project Management" },
+    ];
+    
     const achievements = [{ title: "BIC Hackathon V 3.0 Winner", description: "Won with 'SubhaYatra' project, contributing to idea curation, data collection, and frontend development", icon: faTrophy, year: "2023" }, { title: "IOE Merit Scholarship", description: "Institute of Engineering, Tribhuvan University Merit Scholarship recipient (2021-2025)", icon: faGraduationCap, year: "2021-2025" }, { title: "Top 60 Consistent Learner", description: "Selected as one of top 60 learners in Leapfrog Technology's 60-day learning challenge", icon: faBookOpen, year: "2024" }];
-    const certificates = [ { title: "AWS Certified Cloud Practitioner", description: "Successfully obtained AWS Cloud Practitioner certification (CLF-C02), validating foundational cloud knowledge.", issuer: "Amazon Web Services", year: "2025", icon: faAws }, { title: "Hands-on Introduction to Linux Commands and Shell Scripting", description: "Learn bash scripting skill", issuer: "Coursera", year: "2023", icon: faShieldAlt } ];
-    const events = [ { title: "EthosHack - National Hackathon", role: "Software Manager & Organizer", date: "2024", location: "Pashchimanchal Campus", type: "Organizer", description: "Led the technical aspects of a national hackathon, overseeing GitHub repositories and providing real-time technical support.", image: "https://placehold.co/400x300/1e2749/ffffff?text=Event" }, { title: "Sagarmatha Hacktoberfest 2023", role: "Lead Graphics Designer & Organizer", date: "October 2023", location: "Nepal", type: "Organizer", description: "Spearheaded the visual identity and promotional strategy for Hacktoberfest 2023, creating engaging designs that boosted participation.", image: "https://placehold.co/400x300/1e2749/ffffff?text=Event" }, ];
-    const blogPosts = [ { title: "Creating Your First Azure Virtual Machine: A Super Simple Beginner’s Guide", excerpt: "A beginner's guide to create VM in azure.", date: "Jul 12, 2025", readTime: "9 min read", tags: ["VM", "Azure", "Cloud"], image: "https://placehold.co/300x200/1e2749/ffffff?text=Blog" }, { title: "How to Access Your Ubuntu VM from Windows or Ubuntu (Beginner-Friendly Guide)", excerpt: "Learn how to access your Ubuntu VM", date: "JUl 14, 2025", readTime: "6 min read", tags: ["VM", "Azure", "Cloud"], image: "https://placehold.co/300x200/1e2749/ffffff?text=Blog" }, ];
+    
+    // MODIFICATION: Added the LinkedIn Learning Path certificate
+    const certificates = [
+        { title: "AWS Certified Cloud Practitioner", description: "Successfully obtained AWS Cloud Practitioner certification (CLF-C02), validating foundational cloud knowledge.", issuer: "Amazon Web Services", year: "2025", icon: faAws },
+        { title: "Cloud Computing Essentials (Learning Path)", description: "Completed a comprehensive learning path on cloud benefits, services, platforms, security, and careers.", issuer: "LinkedIn Learning", year: "2024", icon: faLinkedin },
+        { title: "Hands-on Introduction to Linux Commands and Shell Scripting", description: "Completed coursework on Bash scripting, command-line utilities, and Linux environment management.", issuer: "Coursera", year: "2023", icon: faTerminal },
+        { title: "NCL Spring 2022 Team Game", description: "Participated in a team-based cybersecurity competition, applying skills in cryptography and network traffic analysis.", issuer: "Cyber Skyline", year: "2022", icon: faShieldAlt }
+       
+    ];
+
+    const events = [ 
+        { title: "EthosHack - National Hackathon", role: "Software Manager & Organizer", date: "2024", location: "Pashchimanchal Campus", type: "Organizer", description: "Led the technical aspects of a national hackathon, overseeing GitHub repositories and providing real-time technical support.", image: "https://placehold.co/400x300/1e2749/ffffff?text=Event" }, 
+        { title: "Sagarmatha Hacktoberfest 2023", role: "Lead Graphics Designer & Organizer", date: "October 2023", location: "Nepal", type: "Organizer", description: "Spearheaded the visual identity and promotional strategy for Hacktoberfest 2023, creating engaging designs that boosted participation.", image: "https://placehold.co/400x300/1e2749/ffffff?text=Event" }, 
+    ];
+
+    const blogPosts = [
+        { title: "Creating Your First Azure Virtual Machine: A Super Simple Beginner’s Guide", excerpt: "A beginner's guide to create VM in azure.", date: "Jul 12, 2025", readTime: "9 min read", tags: ["VM", "Azure", "Cloud"], image: "https://placehold.co/300x200/1e2749/ffffff?text=Blog" },
+        { title: "How to Access Your Ubuntu VM from Windows or Ubuntu (Beginner-Friendly Guide)", excerpt: "Learn how to access your Ubuntu VM", date: "JUl 14, 2025", readTime: "6 min read", tags: ["VM", "Azure", "Cloud"], image: "https://placehold.co/300x200/1e2749/ffffff?text=Blog" }, 
+    ];
 
     useEffect(() => {
         const timer = setTimeout(() => { setLetterClass('text-animate-hover'); }, 4000);
