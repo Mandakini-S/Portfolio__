@@ -1,6 +1,9 @@
 @use "sass:math";
 
-// Mixins
+// ===================================================================
+// MIXINS & BASE STYLES
+// ===================================================================
+
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -17,6 +20,9 @@
   padding: 0 2rem;
 }
 
+// ===================================================================
+// MAIN COMPONENT STYLES
+// ===================================================================
 .one-page-portfolio {
   .container {
     @include container;
@@ -34,19 +40,14 @@
     }
   }
 
-  // --- Section Specific Styles ---
-
+  // --- Hero Section ---
   .hero-section {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     text-align: center;
     padding: 0 2rem;
 
-    .text-zone {
-      max-width: 800px;
-    }
+    .text-zone { max-width: 800px; }
 
     h1 {
       color: #ffffff;
@@ -55,10 +56,7 @@
       font-family: 'Coolvetica', sans-serif;
       font-weight: 400;
       letter-spacing: 4px;
-      
-      span {
-        display: inline-block;
-      }
+      span { display: inline-block; }
     }
 
     h2 {
@@ -75,13 +73,12 @@
       font-weight: 600; 
       margin: 2rem auto; 
       max-width: 600px;
-      letter-spacing: 2px; // This specific class retains its unique spacing
+      letter-spacing: 2px;
     }
 
     .hero-buttons {
       margin-top: 4rem;
-      display: flex;
-      justify-content: center; 
+      @include flex-center;
       gap: 2rem;
       flex-wrap: wrap;
       .flat-button {
@@ -100,43 +97,17 @@
           background: #ffd700;
           color: #022c43;
         }
-        &.secondary {
-            color: #bdc4d7;
-            border-color: #bdc4d7;
-            &:hover {
-                background: #bdc4d7;
-                color: #0a192f;
-            }
-        }
       }
     }
     
-    // --- RESPONSIVE ADJUSTMENTS ---
-    @media screen and (max-width: 1200px) {
-        h1 { font-size: 4.8rem; }
-    }
-
-    @media screen and (max-width: 992px) {
-        h1 { font-size: 4.2rem; }
-        h2 { font-size: 1.8rem; }
-    }
-
-    @media screen and (max-width: 768px) {
-        h1 { font-size: 3.5rem; }
-        h2 { font-size: 1.7rem; }
-    }
-
-    @media screen and (max-width: 576px) {
-        h1 { font-size: 2.8rem; line-height: 1.2; }
-        h2 { font-size: 1.6rem; letter-spacing: 1px; }
-        .hero-description { font-size: 1.6rem; letter-spacing: 1px; }
-    }
-
-    @media screen and (max-width: 480px) {
-        h1 { font-size: 2.4rem; }
-    }
+    @media screen and (max-width: 1200px) { h1 { font-size: 4.8rem; } }
+    @media screen and (max-width: 992px) { h1 { font-size: 4.2rem; } h2 { font-size: 1.8rem; } }
+    @media screen and (max-width: 768px) { h1 { font-size: 3.5rem; } h2 { font-size: 1.7rem; } }
+    @media screen and (max-width: 576px) { h1 { font-size: 2.8rem; line-height: 1.2; } h2 { font-size: 1.6rem; letter-spacing: 1px; } .hero-description { font-size: 1.6rem; letter-spacing: 1px; } }
+    @media screen and (max-width: 480px) { h1 { font-size: 2.4rem; } }
   }
 
+  // --- About Section ---
   .about-section {
     @include section-padding;
     background: #112240;
@@ -151,7 +122,7 @@
         font-weight: 600;
         text-align: left;
         margin-bottom: 2rem;
-        letter-spacing: 1px; // Updated letter-spacing
+        letter-spacing: 1px;
       }
       .education-info {
         margin-top: 4rem;
@@ -161,7 +132,7 @@
         border-radius: 8px;
         h3 { font-size: 2rem; margin-bottom: 1.5rem; letter-spacing: 1.5px; }
         h4 { font-size: 1.8rem; letter-spacing: 1px; }
-        p { font-size: 1.6rem; color: #bdc4d7; margin: 0.5rem 0; letter-spacing: 1px; } // Applied letter-spacing
+        p { font-size: 1.6rem; color: #bdc4d7; margin: 0.5rem 0; letter-spacing: 1px; }
         .merit {
             background: #ffd700;
             color: #022c43;
@@ -172,20 +143,19 @@
             letter-spacing: 1px;
         }
       }
-      .education-item{
-        padding-bottom: 5%;
-      }
+      .education-item { padding-bottom: 5%; }
       .about-image .image-container {
+        position: relative;
         border-radius: 8px;
         overflow: hidden;
-        img {
-          width: 100%;
-          display: block;
-        }
+        border: 3px solid #303c55;
+        transition: border-color 0.4s ease;
+        &:hover { border-color: #ffd700; }
       }
     }
   }
 
+  // --- Skills Section ---
   .skills-section {
     @include section-padding;
     .skills-grid {
@@ -213,19 +183,11 @@
               display: block;
               font-weight: 600;
             }
-            .skill-bar { background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden; }
-            .skill-progress { height: 100%; background: #ffd700; border-radius: 4px; }
-            .skill-percentage { 
-              font-size: 1.4rem; 
-              color: #ffd700; 
-              margin-top: 1rem; 
-              display: block;
-              font-weight: 600;
-            }
         }
     }
   }
   
+  // --- Projects & Blog Sections ---
   .projects-section, .blog-section {
     @include section-padding;
     background: #112240;
@@ -242,7 +204,8 @@
         &:hover { transform: translateY(-5px); }
         .project-image, .blog-image {
             position: relative;
-            img { width: 100%; height: 220px; object-fit: cover; display: block; }
+            overflow: hidden;
+            img { height: 220px; }
         }
         .project-content, .blog-content {
             padding: 2.5rem;
@@ -252,7 +215,7 @@
               color: #bdc4d7;
               font-weight: 600;
               margin-bottom: 2rem;
-              letter-spacing: 1px; // Applied letter-spacing
+              letter-spacing: 1px;
             }
         }
         .project-technologies {
@@ -266,21 +229,22 @@
               font-weight: 600;
             }
         }
-        .project-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10,25,47,0.8); @include flex-center; opacity: 0; transition: opacity 0.3s ease;
-            .project-links a { color: #ffd700; font-size: 2rem; margin: 0 1rem; }
-        }
-        &:hover .project-overlay { opacity: 1; }
+    }
+    .project-card .project-image .project-type {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(10, 25, 47, 0.8);
+        color: #ffd700;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        z-index: 2;
     }
   }
 
-  .blog-card .blog-content .read-more {
-    color: #ffd700;
-    font-weight: 600;
-    text-decoration: none;
-    letter-spacing: 1px;
-  }
-
+  // --- Events Section ---
   .events-section {
     @include section-padding;
     .events-timeline {
@@ -292,10 +256,12 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-            &:nth-child(even) {
-                .event-image { order: 2; }
+            &:nth-child(even) { .event-image { order: 2; } }
+            .event-image {
+                position: relative;
+                overflow: hidden;
+                border-radius: 8px;
             }
-            .event-image img { width: 100%; border-radius: 8px; }
             .event-content {
                 h3 { font-size: 2.2rem; margin-bottom: 1rem; letter-spacing: 1.5px; }
                 .event-meta { display: flex; gap: 2rem; color: #bdc4d7; margin-bottom: 1rem; letter-spacing: 1px; }
@@ -305,17 +271,13 @@
                   margin-bottom: 1.5rem; 
                   letter-spacing: 1px;
                 }
-                p { 
-                  font-size: 1.6rem; 
-                  color: #bdc4d7;
-                  font-weight: 600;
-                  letter-spacing: 1px; // Applied letter-spacing
-                }
+                p { font-size: 1.6rem; color: #bdc4d7; font-weight: 600; letter-spacing: 1px; }
             }
         }
     }
   }
 
+  // --- Achievements & Certificates Sections ---
   .achievements-section,
   .certificates-section {
     @include section-padding;
@@ -331,25 +293,11 @@
             padding: 3rem;
             border-radius: 8px;
             .achievement-icon,
-            .certificate-icon { 
-              font-size: 3rem; 
-              color: #ffd700; 
-              margin-bottom: 1.5rem; 
-            }
+            .certificate-icon { font-size: 3rem; color: #ffd700; margin-bottom: 1.5rem; }
             .achievement-year,
-            .certificate-year { 
-              font-size: 1.4rem; 
-              color: #bdc4d7; 
-              font-weight: 600; 
-              letter-spacing: 1px;
-            }
+            .certificate-year { font-size: 1.4rem; color: #bdc4d7; font-weight: 600; letter-spacing: 1px; }
             h3 { font-size: 2rem; margin: 0.5rem 0; letter-spacing: 1.5px; }
-            p { 
-              font-size: 1.6rem; 
-              color: #bdc4d7; 
-              font-weight: 600;
-              letter-spacing: 1px; // Applied letter-spacing
-            }
+            p { font-size: 1.6rem; color: #bdc4d7; font-weight: 600; letter-spacing: 1px; }
             .certificate-issuer {
                 font-style: italic;
                 font-size: 1.4rem;
@@ -361,6 +309,7 @@
     }
   }
 
+  // --- Contact Section ---
   .contact-section {
     @include section-padding;
     .contact-content {
@@ -369,13 +318,7 @@
         gap: 5rem;
         .contact-info {
             h3 { font-size: 2.4rem; letter-spacing: 1.5px; }
-            p { 
-              font-size: 1.8rem; 
-              color: #bdc4d7;
-              font-weight: 600;
-              margin: 2rem 0; 
-              letter-spacing: 1px;
-            }
+            p { font-size: 1.8rem; color: #bdc4d7; font-weight: 600; margin: 2rem 0; letter-spacing: 1px; }
             .contact-details .contact-item { display: flex;letter-spacing: 1.5px; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; font-size: 1.6rem; svg { color: #ffd700; } }
             .social-links { display: flex; gap: 2rem; margin-top: 3rem; a { font-size: 2.4rem; color: #bdc4d7; &:hover { color: #ffd700; } } }
         }
@@ -411,6 +354,7 @@
     }
   }
 
+  // --- Utility: Scroll to Top Button ---
   .scroll-to-top {
     position: fixed;
     bottom: 3rem;
@@ -429,6 +373,7 @@
     &:hover { transform: scale(1.1); }
   }
 
+  // --- Responsive Media Queries ---
   @media screen and (max-width: 992px) {
     .about-section .about-content,
     .contact-section .contact-content,
@@ -438,5 +383,88 @@
     .events-section .events-timeline .event-card:nth-child(even) .event-image {
         order: 1;
     }
+  }
+}
+
+// ===================================================================
+// DYNAMIC IMAGE & OVERLAY STYLING (NEW)
+// ===================================================================
+
+// --- 1. Universal Image Styles ---
+// Base styles for all images that will have an overlay
+.about-image img,
+.project-image img,
+.blog-image img,
+.event-image img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+// --- 2. Universal Overlay Styles ---
+// A single overlay class to rule them all
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 25, 47, 0.7);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  @include flex-center;
+  z-index: 1;
+}
+
+// --- 3. Hover Effects ---
+// Apply hover effects to the parent containers
+.about-image:hover,
+.project-card:hover,
+.blog-card:hover,
+.event-card:hover {
+  .overlay {
+    opacity: 1;
+  }
+  img {
+    transform: scale(1.05);
+  }
+}
+
+// --- 4. Specific Overlay Content Styling ---
+// Customize content inside each type of overlay
+.project-image .overlay .project-links {
+  a {
+    color: #ffd700;
+    font-size: 2rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+    &:hover { color: #ffffff; }
+  }
+}
+
+.blog-image .overlay .read-more {
+  color: #ffd700;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border: 1px solid #ffd700;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  &:hover {
+    background-color: #ffd700;
+    color: #022c43;
+  }
+}
+
+// --- 5. Specific Tweaks for About Image ---
+.about-image {
+  img {
+    filter: grayscale(70%);
+  }
+  &:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.03); // A more subtle zoom for the profile pic
   }
 }

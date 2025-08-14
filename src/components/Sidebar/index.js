@@ -1,3 +1,4 @@
+// src/components/Sidebar/index.js
 import React, { useState, useEffect } from 'react';
 import './index.scss';
 import LogoS from '../../assets/images/MS_logo-07.png';

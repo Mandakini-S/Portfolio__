@@ -1,3 +1,4 @@
+// Layout/index.js
 import React from 'react';
 import Sidebar from '../Sidebar/';
 import './index.scss';
