@@ -20,6 +20,16 @@
   padding: 0 2rem;
 }
 
+// Keyframes for the hero background animation
+@keyframes move-grid {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200px 200px;
+  }
+}
+
 // ===================================================================
 // MAIN COMPONENT STYLES
 // ===================================================================
@@ -46,8 +56,30 @@
     @include flex-center;
     text-align: center;
     padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
 
-    .text-zone { max-width: 800px; }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 215, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 1;
+      opacity: 0.5;
+      animation: move-grid 20s linear infinite;
+    }
+
+    .text-zone { 
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
 
     h1 {
       color: #ffffff;
@@ -58,7 +90,6 @@
       letter-spacing: 4px;
       span { display: inline-block; }
     }
-
     h2 {
       color: #bdc4d7;
       margin-top: 2rem;
@@ -66,7 +97,6 @@
       font-size: 2rem;
       letter-spacing: 2px;
     }
-
     .hero-description {
       color: #bdc4d7;
       font-size: 1.8rem;
@@ -75,7 +105,6 @@
       max-width: 600px;
       letter-spacing: 2px;
     }
-
     .hero-buttons {
       margin-top: 4rem;
       @include flex-center;
@@ -100,11 +129,10 @@
       }
     }
     
-    @media screen and (max-width: 1200px) { h1 { font-size: 4.8rem; } }
-    @media screen and (max-width: 992px) { h1 { font-size: 4.2rem; } h2 { font-size: 1.8rem; } }
-    @media screen and (max-width: 768px) { h1 { font-size: 3.5rem; } h2 { font-size: 1.7rem; } }
-    @media screen and (max-width: 576px) { h1 { font-size: 2.8rem; line-height: 1.2; } h2 { font-size: 1.6rem; letter-spacing: 1px; } .hero-description { font-size: 1.6rem; letter-spacing: 1px; } }
-    @media screen and (max-width: 480px) { h1 { font-size: 2.4rem; } }
+    @media screen and (max-width: 768px) {
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 1.7rem; }
+    }
   }
 
   // --- About Section ---
@@ -144,14 +172,6 @@
         }
       }
       .education-item { padding-bottom: 5%; }
-      .about-image .image-container {
-        position: relative;
-        border-radius: 8px;
-        overflow: hidden;
-        border: 3px solid #303c55;
-        transition: border-color 0.4s ease;
-        &:hover { border-color: #ffd700; }
-      }
     }
   }
 
@@ -179,7 +199,6 @@
               color: #ffd700; 
               text-transform: uppercase; 
               letter-spacing: 1px; 
-              margin-bottom: 1.5rem; 
               display: block;
               font-weight: 600;
             }
@@ -202,11 +221,6 @@
         overflow: hidden;
         transition: transform 0.3s ease;
         &:hover { transform: translateY(-5px); }
-        .project-image, .blog-image {
-            position: relative;
-            overflow: hidden;
-            img { height: 220px; }
-        }
         .project-content, .blog-content {
             padding: 2.5rem;
             h3 { font-size: 2rem; margin-bottom: 1rem; letter-spacing: 1.5px; }
@@ -240,7 +254,64 @@
         border-radius: 5px;
         font-size: 1.2rem;
         font-weight: bold;
-        z-index: 2;
+        z-index: 3;
+    }
+  }
+
+  // --- Technical Experience Section ---
+  .experience-section {
+    @include section-padding;
+    .experience-timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      .experience-card {
+        background: #1e2749;
+        padding: 3rem;
+        border-radius: 8px;
+        border-left: 4px solid #ffd700;
+        position: relative;
+        h3 {
+          font-size: 2.2rem;
+          margin-bottom: 0.5rem;
+          letter-spacing: 1.5px;
+        }
+        .experience-meta {
+          display: flex;
+          gap: 2rem;
+          flex-wrap: wrap;
+          color: #bdc4d7;
+          font-size: 1.4rem;
+          margin-bottom: 1.5rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+          span {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+          }
+        }
+        .experience-tasks {
+          list-style: none;
+          padding-left: 0;
+          margin-top: 1.5rem;
+          li {
+            font-size: 1.6rem;
+            color: #bdc4d7;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            padding-left: 2rem;
+            position: relative;
+            letter-spacing: 1px;
+            &::before {
+              content: '▹';
+              position: absolute;
+              left: 0;
+              color: #ffd700;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -256,15 +327,20 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
+            justify-items: center; 
             &:nth-child(even) { .event-image { order: 2; } }
-            .event-image {
-                position: relative;
-                overflow: hidden;
-                border-radius: 8px;
-            }
             .event-content {
+                text-align: left; 
+                width: 100%;
                 h3 { font-size: 2.2rem; margin-bottom: 1rem; letter-spacing: 1.5px; }
-                .event-meta { display: flex; gap: 2rem; color: #bdc4d7; margin-bottom: 1rem; letter-spacing: 1px; }
+                .event-meta { 
+                    display: flex; 
+                    gap: 2rem; 
+                    color: #bdc4d7; 
+                    margin-bottom: 1rem; 
+                    letter-spacing: 1px;
+                    font-weight: 600;
+                }
                 .event-role { 
                   font-weight: 700;
                   color: #ffd700; 
@@ -276,8 +352,8 @@
         }
     }
   }
-
-  // --- Achievements & Certificates Sections ---
+  
+  // ★★★ Achievements & Certificates Sections (RESTORED) ★★★
   .achievements-section,
   .certificates-section {
     @include section-padding;
@@ -316,11 +392,39 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 5rem;
+        align-items: center;
         .contact-info {
-            h3 { font-size: 2.4rem; letter-spacing: 1.5px; }
-            p { font-size: 1.8rem; color: #bdc4d7; font-weight: 600; margin: 2rem 0; letter-spacing: 1px; }
-            .contact-details .contact-item { display: flex;letter-spacing: 1.5px; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; font-size: 1.6rem; svg { color: #ffd700; } }
-            .social-links { display: flex; gap: 2rem; margin-top: 3rem; a { font-size: 2.4rem; color: #bdc4d7; &:hover { color: #ffd700; } } }
+            h3 { 
+                font-size: 2.4rem; 
+                letter-spacing: 1.5px; 
+            }
+            p { 
+              font-size: 1.8rem; 
+              color: #bdc4d7;
+              font-weight: 600;
+              margin: 2rem 0; 
+              letter-spacing: 1px;
+            }
+            .contact-details .contact-item { 
+                display: flex;
+                letter-spacing: 1px;
+                align-items: center; 
+                gap: 1.5rem; 
+                margin-bottom: 1.5rem; 
+                font-size: 1.6rem; 
+                font-weight: 600;
+                svg { color: #ffd700; } 
+            }
+            .social-links { 
+                display: flex; 
+                gap: 2rem; 
+                margin-top: 3rem; 
+                a { 
+                    font-size: 2.4rem; 
+                    color: #bdc4d7; 
+                    &:hover { color: #ffd700; } 
+                } 
+            }
         }
         .contact-form {
             .form-group { margin-bottom: 2rem; }
@@ -333,7 +437,7 @@
                 color: #ffffff;
                 font-size: 1.6rem;
                 font-weight: 600;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
                 &:focus { outline: none; border-color: #ffd700; }
             }
             textarea { resize: vertical; min-height: 120px; }
@@ -379,92 +483,150 @@
     .contact-section .contact-content,
     .events-section .events-timeline .event-card {
         grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+    .events-section .events-timeline .event-card .event-content {
+      text-align: center;
     }
     .events-section .events-timeline .event-card:nth-child(even) .event-image {
         order: 1;
     }
   }
-}
 
-// ===================================================================
-// DYNAMIC IMAGE & OVERLAY STYLING (NEW)
-// ===================================================================
-
-// --- 1. Universal Image Styles ---
-// Base styles for all images that will have an overlay
-.about-image img,
-.project-image img,
-.blog-image img,
-.event-image img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-// --- 2. Universal Overlay Styles ---
-// A single overlay class to rule them all
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 25, 47, 0.7);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  @include flex-center;
-  z-index: 1;
-}
-
-// --- 3. Hover Effects ---
-// Apply hover effects to the parent containers
-.about-image:hover,
-.project-card:hover,
-.blog-card:hover,
-.event-card:hover {
-  .overlay {
-    opacity: 1;
+  // ===================================================================
+  // IMAGE CONTAINER & OVERLAY STYLING
+  // ===================================================================
+  .image-container, .project-image, .blog-image, .event-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 450px;
   }
-  img {
-    transform: scale(1.05);
+  .project-image, .blog-image { height: 220px; }
+  .event-image { height: 250px; }
+  
+  img, .carousel .slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
   }
-}
 
-// --- 4. Specific Overlay Content Styling ---
-// Customize content inside each type of overlay
-.project-image .overlay .project-links {
-  a {
+  .project-image::after,
+  .blog-image::after,
+  .event-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.7);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .project-card:hover .project-image,
+  .blog-card:hover .blog-image,
+  .event-card:hover .event-image {
+    &::after {
+      opacity: 1;
+    }
+    img, .carousel .slide img {
+      transform: scale(1.05);
+    }
+  }
+
+  .project-links-container, .blog-links-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include flex-center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 3;
+  }
+
+  .project-card:hover .project-links-container,
+  .blog-card:hover .blog-links-container {
+      opacity: 1;
+  }
+
+  .project-links-container a {
     color: #ffd700;
     font-size: 2rem;
     margin: 0 1rem;
-    transition: color 0.3s ease;
     &:hover { color: #ffffff; }
   }
-}
 
-.blog-image .overlay .read-more {
-  color: #ffd700;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 1px;
-  border: 1px solid #ffd700;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  &:hover {
-    background-color: #ffd700;
-    color: #022c43;
+  .blog-links-container .read-more {
+    color: #ffd700;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: rgba(2, 44, 67, 0.5);
+    &:hover { background-color: #ffd700; color: #022c43; }
   }
-}
+  
+  .about-image {
+    @include flex-center;
+    .image-container {
+      width: 90%;
+      height: 90%;
+      img {
+        border-radius: 8px;
+      }
+      &:hover img {
+        transform: scale(1.01);
+      }
+    }
+  }
 
-// --- 5. Specific Tweaks for About Image ---
-.about-image {
-  img {
-    filter: grayscale(70%);
+  // ===================================================================
+  // CAROUSEL OVERRIDE STYLES
+  // ===================================================================
+  .carousel-root, .carousel.carousel-slider, .carousel .slider-wrapper, .carousel .slider {
+    height: 100%;
   }
-  &:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.03); // A more subtle zoom for the profile pic
+
+  .carousel .control-arrow {
+    background: rgba(10, 25, 47, 0.5) !important;
+    opacity: 0 !important;
+    height: 50px;
+    width: 40px;
+    top: 50% !important;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    &:hover { background: #ffd700 !important; }
   }
+
+  .project-image:hover .control-arrow,
+  .event-image:hover .control-arrow {
+    opacity: 1 !important;
+  }
+
+  .carousel .control-dots {
+    bottom: 10px;
+    z-index: 2;
+    .dot {
+      background: rgba(255, 255, 255, 0.4) !important;
+      box-shadow: none !important;
+      width: 10px !important;
+      height: 10px !important;
+      &.selected, &:hover {
+        background: #ffd700 !important;
+      }
+    }
+  }
+
+  .carousel .slide .legend { display: none; }
 }

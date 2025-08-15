@@ -1,26 +1,54 @@
 import React, { useEffect, useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 import AnimatedLetters from '../AnimatedLetters';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAws, faDocker, faGitAlt, faGithub, faLinkedin, faMedium, faReact, faPython, faLinux } from '@fortawesome/free-brands-svg-icons'; 
-import { faBookOpen, faCalendarAlt, faCalendarCheck, faCode, faDatabase,faEnvelope, faExternalLinkAlt, faGraduationCap, faMapMarkerAlt, faTasks, faTools, faTrophy, faUsers, faArrowUp, faShieldAlt, faTerminal, faCloud} from '@fortawesome/free-solid-svg-icons';
+import { faBookOpen, faCalendarAlt, faCalendarCheck, faCode, faDatabase,faEnvelope, faBuilding, faExternalLinkAlt, faGraduationCap, faMapMarkerAlt, faTasks, faTools, faTrophy, faUsers, faArrowUp, faShieldAlt, faTerminal, faCloud} from '@fortawesome/free-solid-svg-icons';
 import './index.scss';
 
+// Import all images
 import glucobalanceImage from '../../assets/images/GlucoBalance.jpg'; 
 import selfCheckoutImage from '../../assets/images/Self_checkout_device.jpeg';
 import hospitalManagementImage from '../../assets/images/HMS.jpg';
 import UbuntuImage from '../../assets/images/Ubuntu.jpg';
 import AzureImage from '../../assets/images/Azure.png';
-import myProfileImage from '../../assets/images/MS_logo-08.png'; // Added a real profile image
+import myProfileImage from '../../assets/images/Self-removebg-preview.png';
+import Ices1 from '../../assets/images/ICES1.jpeg';
+import Ices2 from '../../assets/images/ICES2.jpeg';
+import Ethoshack1 from '../../assets/images/ETHOSHACK1.jpeg';
+import Ethoshack2 from '../../assets/images/ETHOSHACK2.jpeg';
+import Ethoshack3 from '../../assets/images/ETHOSHACK3.jpeg';
+import Ioegc1 from '../../assets/images/IOEGC1.jpeg';
+import Ioegc2 from '../../assets/images/IOEGC2.jpeg';
+import Ioegc3 from '../../assets/images/IOEGC3.jpeg';
+import Ioegc4 from '../../assets/images/IOEGC4.jpeg';
+import Iconbook from '../../assets/images/ICON.jpg';
+import SagarmathaHacktoberfest from '../../assets/images/Sagarmatha_Hacktoberfest.png';
+
 
 const OnePagePortfolio = () => {
     const [letterClass, setLetterClass] = useState('text-animate');
     const [showScrollTop, setShowScrollTop] = useState(false);
     const nameArray = ['M', 'a', 'n', 'd', 'a', 'k', 'i', 'n', 'i'];
 
+    const technicalExperience = [
+        {
+            role: "Network Administration Assistant",
+            company: "Pashchimanchal Campus",
+            date: "Dec 2024 - Jan 2025",
+            tasks: [
+                "Assisted in Docker container setup, virtual machine provisioning, application deployment, OS imaging, and network access control.",
+                "Gained hands-on experience with automation tools and an open-source ticketing system."
+            ]
+        }
+    ];
+
     const projects = [ 
-        { title: "Non-Invasive Glucose Monitoring", description: "Final year project implementing Near-Infrared (NIR) technique for glucose monitoring with mobile app integration.", technologies: ["NIR Tech", "Mobile App", "Embedded"], github: "#!", live: "#!", image: glucobalanceImage, type: "Hardware+Software" },
-        { title: "Self-Checkout System in Library", description: "An innovative library management system using NFC technology for automated book checkout and return processes.", technologies: ["NFC", "Database", "IoT"], github: "https://github.com/Mandakini-S/Self-checkout-system-in-Library", live: "#!", image: selfCheckoutImage, type: "IoT Project" },
-        { title: "Hospital Management System", description: "Comprehensive database development for hospital management with patient records, appointment scheduling, and staff management.", technologies: ["MySQL", "System Design"], github: "https://github.com/Mandakini-S/Careconnect_hms", live: "#!", image: hospitalManagementImage, type: "Database Project" }, 
+        { title: "Non-Invasive Glucose Monitoring", description: "Final year project implementing Near-Infrared (NIR) technique for glucose monitoring with mobile app integration.", technologies: ["NIR Tech", "Mobile App", "Embedded"], github: "#!", live: "#!", images: [glucobalanceImage], type: "Hardware+Software" },
+        { title: "Self-Checkout System in Library", description: "An innovative library management system using NFC technology for automated book checkout and return processes.", technologies: ["NFC", "Database", "IoT"], github: "https://github.com/Mandakini-S/Self-checkout-system-in-Library", live: "#!", images: [selfCheckoutImage], type: "IoT Project" },
+        { title: "Hospital Management System", description: "Comprehensive database development for hospital management with patient records, appointment scheduling, and staff management.", technologies: ["MySQL", "System Design"], github: "https://github.com/Mandakini-S/Careconnect_hms", live: "#!", images: [hospitalManagementImage], type: "Database Project" }, 
     ];
     
     const skills = [
@@ -47,65 +75,16 @@ const OnePagePortfolio = () => {
     ];
 
     const events = [ 
-        { 
-            title: "Innovative Computer Eng. Students' Society",
-            role: "Vice President (7th Executive)",
-            date: "April 2023 - May 2024",
-            location: "Pashchimanchal Campus",
-            type: "Leadership",
-            description: "Coordinated executive meetings, fostered industry partnerships for member opportunities, and organized workshops to enhance student engagement.",
-            image: "https://placehold.co/400x300/1e2749/ffd700?text=Society"
-        },
-        { 
-            title: "ICON Student Research Journal, Vol. 7",
-            role: "Editor in Chief",
-            date: "2024",
-            location: "Pashchimanchal Campus",
-            type: "Leadership",
-            description: "Designed the entire journal (ISSN: 2645-8365) using Adobe InDesign, led content curation, and maintained high standards for grammar and accuracy across all articles.",
-            image: "https://placehold.co/400x300/1e2749/ffd700?text=Journal"
-        },
-        { 
-            title: "EthosHack - National Hackathon",
-            role: "Software Manager & Organizer",
-            date: "2024",
-            location: "Pashchimanchal Campus",
-            type: "Organizer",
-            description: "Oversaw GitHub repositories, provided real-time technical support, designed certificates and social media posts, and wrote content for social platforms.",
-            image: "https://placehold.co/400x300/1e2749/ffd700?text=Hackathon"
-        }, 
-        { 
-            title: "Sagarmatha Hacktoberfest 2023",
-            role: "Lead Graphics Designer & Organizer",
-            date: "October 2023",
-            location: "Nepal",
-            type: "Organizer",
-            description: "Designed all promotional materials, including banners, posters, and social media graphics, to boost event engagement and visibility under a tight deadline.",
-            image: "https://placehold.co/400x300/1e2749/ffd700?text=Hacktoberfest"
-        },
-        {
-            title: "15th IOE Graduate Conference",
-            role: "Master of Ceremony",
-            date: "2024",
-            location: "IOE, Pashchimanchal Campus",
-            type: "Organizer",
-            description: "Coordinated the event flow, introduced speakers, and managed the schedule to ensure a seamless experience for all attendees and presenters.",
-            image: "https://placehold.co/400x300/1e2749/ffd700?text=Conference"
-        },
-        {
-            title: "Talk with Tech Leaders",
-            role: "Event Coordinator",
-            date: "2023",
-            location: "Pashchimanchal Campus",
-            type: "Organizer",
-            description: "Organized logistics, coordinated with industry leaders, and promoted the event to increase visibility and participation.",
-            image: "https://placehold.co/400x300/1e2749/ffd700?text=Event"
-        }
+        { title: "Innovative Computer Eng. Students' Society", role: "Vice President (7th Executive)", date: "April 2023 - May 2024", location: "Pashchimanchal Campus", type: "Leadership", description: "Coordinated executive meetings, fostered industry partnerships for member opportunities, and organized workshops to enhance student engagement.", images: [Ices2, Ices1] },
+        { title: "ICON Student Research Journal, Vol. 7", role: "Editor in Chief", date: "2024", location: "Pashchimanchal Campus", type: "Leadership", description: "Designed the entire journal (ISSN: 2645-8365) using Adobe InDesign, led content curation, and maintained high standards for accuracy across all articles.", images: [Iconbook] },
+        { title: "EthosHack - National Hackathon", role: "Software Manager & Organizer", date: "2024", location: "Pashchimanchal Campus", type: "Organizer", description: "Oversaw GitHub repositories, provided real-time technical support, designed certificates and social media posts, and wrote content for social platforms.", images: [Ethoshack1, Ethoshack2, Ethoshack3] }, 
+        { title: "Sagarmatha Hacktoberfest 2023", role: "Lead Graphics Designer & Organizer", date: "October 2023", location: "Nepal", type: "Organizer", description: "Designed all promotional materials, including banners, posters, and social media graphics, to boost event engagement and visibility under a tight deadline.", images: [SagarmathaHacktoberfest] },
+        { title: "15th IOE Graduate Conference", role: "Master of Ceremony", date: "2024", location: "IOE, Pulchowk Campus", type: "Organizer", description: "Coordinated the event flow, introduced speakers, and managed the schedule to ensure a seamless experience for all attendees and presenters.", images: [Ioegc1, Ioegc2, Ioegc3, Ioegc4] },
     ];
 
     const blogPosts = [
-        { title: "Creating Your First Azure Virtual Machine: A Super Simple Beginner’s Guide", excerpt: "A beginner's guide to create VM in azure.", date: "Aug 12, 2024", readTime: "9 min read", tags: ["VM", "Azure", "Cloud"], image: AzureImage, link: "https://medium.com/@mandakini_yess/creating-your-first-azure-virtual-machine-a-super-simple-beginners-guide-7503734563a9" },
-        { title: "How to Access Your Ubuntu VM from Windows or Ubuntu (Beginner-Friendly Guide)", excerpt: "Learn how to access your Ubuntu VM", date: "Aug 14, 2024", readTime: "6 min read", tags: ["VM", "Azure", "Cloud"], image: UbuntuImage, link: "https://medium.com/@mandakini_yess/how-to-access-your-ubuntu-vm-from-windows-or-ubuntu-beginner-friendly-guide-63f45f9a2e65" }, 
+        { title: "Creating Your First Azure Virtual Machine: A Super Simple Beginner’s Guide", excerpt: "A beginner's guide to create VM in azure.", date: "Aug 12, 2024", readTime: "9 min read", tags: ["VM", "Azure", "Cloud"], images: [AzureImage], link: "https://medium.com/@mandakini_yess/creating-your-first-azure-virtual-machine-a-super-simple-beginners-guide-7503734563a9" },
+        { title: "How to Access Your Ubuntu VM from Windows or Ubuntu (Beginner-Friendly Guide)", excerpt: "Learn how to access your Ubuntu VM", date: "Aug 14, 2024", readTime: "6 min read", tags: ["VM", "Azure", "Cloud"], images: [UbuntuImage], link: "https://medium.com/@mandakini_yess/how-to-access-your-ubuntu-vm-from-windows-or-ubuntu-beginner-friendly-guide-63f45f9a2e65" }, 
     ];
 
     useEffect(() => {
@@ -139,7 +118,7 @@ const OnePagePortfolio = () => {
                             <span className={`${letterClass} _13`}>I'm{'\u00A0'}</span>
                             <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={15} /> <br />
                         </h1>
-                        <h2>Electronics Graduate | React Developer | Cloud Enthusiast</h2>
+                        <h2>Electronics Engineering Graduate | Web Developer | Cloud Enthusiast</h2>
                         <p className="hero-description">Curious mind who loves creating, exploring, and occasionally getting lost in the joy of figuring things out.</p>
                         <div className="hero-buttons">
                             <a href="#contact" className="flat-button" onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }}>GET IN TOUCH</a>
@@ -169,8 +148,6 @@ const OnePagePortfolio = () => {
                             <div className="about-image">
                                 <div className="image-container">
                                     <img src={myProfileImage} alt="Mandakini Sapkota" />
-                                    {/* OVERLAY ADDED HERE */}
-                                    <div className="overlay"></div>
                                 </div>
                             </div>
                         </div>
@@ -196,46 +173,22 @@ const OnePagePortfolio = () => {
                         <div className="projects-grid">{projects.map((project, index) => (
                             <div key={index} className="project-card">
                                 <div className="project-image">
-                                    <img src={project.image} alt={project.title} />
+                                    <Carousel showThumbs={false} showStatus={false} infiniteLoop useKeyboardArrows>
+                                        {project.images.map((img, i) => (
+                                            <div key={i}>
+                                                <img src={img} alt={`${project.title} - ${i + 1}`} />
+                                            </div>
+                                        ))}
+                                    </Carousel>
                                     <div className="project-type">{project.type}</div>
-                                    {/* OVERLAY IS HERE */}
-                                    <div className="overlay">
-                                        <div className="project-links">
-                                            <a href={project.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-                                            <a href={project.live} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} /></a>
-                                        </div>
+                                    <div className="project-links-container">
+                                        <a href={project.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
                                     </div>
                                 </div>
                                 <div className="project-content">
                                     <h3>{project.title}</h3>
                                     <p>{project.description}</p>
                                     <div className="project-technologies">{project.technologies.map((tech, techIndex) => (<span key={techIndex} className="tech-tag">{tech}</span>))}</div>
-                                </div>
-                            </div>
-                        ))}</div>
-                    </div>
-                </section>
-
-                <section id="events" className="events-section">
-                    <div className="container">
-                        <div className="section-header"><h2>Events & Leadership</h2></div>
-                        <div className="events-timeline">{events.map((event, index) => (
-                            <div key={index} className="event-card">
-                                <div className="event-image">
-                                    <img src={event.image} alt={event.title} />
-                                    {/* OVERLAY ADDED HERE */}
-                                    <div className="overlay"></div>
-                                </div>
-                                <div className="event-content">
-                                    <div className="event-header">
-                                        <div className="event-meta">
-                                            <span className="event-date"><FontAwesomeIcon icon={faCalendarAlt} /> {event.date}</span>
-                                            <span className="event-location"><FontAwesomeIcon icon={faMapMarkerAlt} /> {event.location}</span>
-                                        </div>
-                                        <h3>{event.title}</h3>
-                                        <div className="event-role"><FontAwesomeIcon icon={getRoleIcon(event.type)} /> {event.role}</div>
-                                    </div>
-                                    <p className="event-description">{event.description}</p>
                                 </div>
                             </div>
                         ))}</div>
@@ -257,7 +210,7 @@ const OnePagePortfolio = () => {
                         ))}</div>
                     </div>
                 </section>
-
+                
                 <section id="certificates" className="certificates-section">
                     <div className="container">
                         <div className="section-header"><h2>Certificates</h2></div>
@@ -277,15 +230,66 @@ const OnePagePortfolio = () => {
                     </div>
                 </section>
 
+                <section id="experience" className="experience-section">
+                    <div className="container">
+                        <div className="section-header"><h2>Technical Experience</h2></div>
+                        <div className="experience-timeline">
+                            {technicalExperience.map((exp, index) => (
+                                <div key={index} className="experience-card">
+                                    <h3>{exp.role}</h3>
+                                    <div className="experience-meta">
+                                        <span className="company"><FontAwesomeIcon icon={faBuilding} /> {exp.company}</span>
+                                        <span className="date"><FontAwesomeIcon icon={faCalendarAlt} /> {exp.date}</span>
+                                    </div>
+                                    <ul className="experience-tasks">
+                                        {exp.tasks.map((task, i) => (
+                                            <li key={i}>{task}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="events" className="events-section">
+                    <div className="container">
+                        <div className="section-header"><h2>Events & Leadership</h2></div>
+                        <div className="events-timeline">{events.map((event, index) => (
+                            <div key={index} className="event-card">
+                                <div className="event-image">
+                                    <Carousel showThumbs={false} showStatus={false} infiniteLoop useKeyboardArrows>
+                                        {event.images.map((img, i) => (
+                                            <div key={i}>
+                                                <img src={img} alt={`${event.title} - ${i + 1}`} />
+                                            </div>
+                                        ))}
+                                    </Carousel>
+                                </div>
+                                <div className="event-content">
+                                    <div className="event-header">
+                                        <div className="event-meta">
+                                            <span className="event-date"><FontAwesomeIcon icon={faCalendarAlt} /> {event.date}</span>
+                                            <span className="event-location"><FontAwesomeIcon icon={faMapMarkerAlt} /> {event.location}</span>
+                                        </div>
+                                        <h3>{event.title}</h3>
+                                        <div className="event-role"><FontAwesomeIcon icon={getRoleIcon(event.type)} /> {event.role}</div>
+                                    </div>
+                                    <p className="event-description">{event.description}</p>
+                                </div>
+                            </div>
+                        ))}</div>
+                    </div>
+                </section>
+
                 <section id="blog" className="blog-section">
                     <div className="container">
                         <div className="section-header"><h2>Latest Blog Posts</h2></div>
                         <div className="blog-grid">{blogPosts.map((post, index) => (
                             <article key={index} className="blog-card">
                                 <div className="blog-image">
-                                    <img src={post.image} alt={post.title} />
-                                    {/* OVERLAY ADDED HERE */}
-                                    <div className="overlay">
+                                    <img src={post.images[0]} alt={post.title} />
+                                    <div className="blog-links-container">
                                         <a href={post.link} target="_blank" rel="noopener noreferrer" className="read-more">Read More <FontAwesomeIcon icon={faExternalLinkAlt} /></a>
                                     </div>
                                 </div>

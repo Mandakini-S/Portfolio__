@@ -1,9 +1,8 @@
-// src/components/Sidebar/index.js
 import React, { useState, useEffect } from 'react';
 import './index.scss';
 import LogoS from '../../assets/images/MS_logo-07.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faCode, faPenNib, faEnvelope, faBars, faTimes, faTrophy, faBlog, faCalendarCheck, faCertificate } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faPenNib, faEnvelope, faBars, faTimes, faTrophy, faBlog, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin, faMedium } from '@fortawesome/free-brands-svg-icons';
 
 const Sidebar = () => {
@@ -22,15 +21,26 @@ const Sidebar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'skills', 'projects', 'events', 'achievements', 'certificates', 'blog', 'contact'];
-      const scrollPosition = window.scrollY + 150;
+      // The sections array still includes 'skills' to track its position
+      const sections = ['hero', 'about', 'skills', 'projects', 'credentials', 'experience', 'events', 'blog', 'contact'];
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element && scrollPosition >= element.offsetTop && scrollPosition < element.offsetTop + element.offsetHeight) {
-          setActiveSection(section);
-          break;
+      let currentSection = '';
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element && scrollPosition >= element.offsetTop) {
+          currentSection = sectionId;
         }
+      }
+
+     
+      if (currentSection === 'skills') {
+        setActiveSection('about');
+      } else if (currentSection === 'events') {
+        setActiveSection('experience');
+      } else {
+        setActiveSection(currentSection);
       }
     };
 
@@ -45,7 +55,13 @@ const Sidebar = () => {
   const createNavLink = (sectionId, icon, title) => (
     <a
       href={`#${sectionId}`}
-      className={activeSection === sectionId ? 'active' : ''}
+     
+      className={
+        activeSection === sectionId || 
+        (sectionId === 'about' && activeSection === 'skills') ||
+        (sectionId === 'experience' && activeSection === 'events') 
+        ? 'active' : ''
+      }
       onClick={(e) => {
         e.preventDefault();
         scrollToSection(sectionId);
@@ -65,19 +81,17 @@ const Sidebar = () => {
         </a>
         <nav>
           {createNavLink('hero', faHome, 'Home')}
-          {createNavLink('about', faUser, 'About')}
-          {createNavLink('skills', faCode, 'Skills')}
+          {createNavLink('about', faUser, 'About & Skills')}
           {createNavLink('projects', faPenNib, 'Projects')}
-          {createNavLink('events', faCalendarCheck, 'Events')}
-          {createNavLink('achievements', faTrophy, 'Achievements')}
-          {createNavLink('certificates', faCertificate, 'Certificates')}
+          {createNavLink('credentials', faTrophy, 'Credentials')}
+          {createNavLink('experience', faCalendarCheck, 'Experience')}
           {createNavLink('blog', faBlog, 'Blog')}
           {createNavLink('contact', faEnvelope, 'Contact')}
         </nav>
         <ul>
           <li><a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/mandakini-sapkota-945164232/" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} /></a></li>
           <li><a target="_blank" rel="noreferrer" href="https://github.com/Mandakini-S" title="GitHub"><FontAwesomeIcon icon={faGithub} /></a></li>
-          <li><a target="_blank" rel="noreferrer" href="#!" title="Medium"><FontAwesomeIcon icon={faMedium} /></a></li>
+          <li><a target="_blank" rel="noreferrer" href="https://medium.com/@mandakini_yess" title="Medium"><FontAwesomeIcon icon={faMedium} /></a></li>
         </ul>
       </div>
 
@@ -88,12 +102,10 @@ const Sidebar = () => {
       {isMobileMenuOpen && (
         <nav className="mobile-nav">
           {createNavLink('hero', faHome, 'Home')}
-          {createNavLink('about', faUser, 'About')}
-          {createNavLink('skills', faCode, 'Skills')}
+          {createNavLink('about', faUser, 'About & Skills')}
           {createNavLink('projects', faPenNib, 'Projects')}
-          {createNavLink('events', faCalendarCheck, 'Events')}
-          {createNavLink('achievements', faTrophy, 'Achievements')}
-          {createNavLink('certificates', faCertificate, 'Certificates')}
+          {createNavLink('credentials', faTrophy, 'Credentials')}
+          {createNavLink('experience', faCalendarCheck, 'Experience')}
           {createNavLink('blog', faBlog, 'Blog')}
           {createNavLink('contact', faEnvelope, 'Contact')}
         </nav>
