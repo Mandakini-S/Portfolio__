@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -27,10 +28,16 @@ import Ioegc4 from '../../assets/images/IOEGC4.jpeg';
 import Iconbook from '../../assets/images/ICON.jpg';
 import SagarmathaHacktoberfest from '../../assets/images/Sagarmatha_Hacktoberfest.png';
 
+const EMAILJS_SERVICE_ID = 'service_cs6bvr7';
+const EMAILJS_TEMPLATE_ID = 'template_wofese3';
+const EMAILJS_PUBLIC_KEY = '2TIZd4N7tjtXWg5en';
 
 const OnePagePortfolio = () => {
     const [letterClass, setLetterClass] = useState('text-animate');
     const [showScrollTop, setShowScrollTop] = useState(false);
+    const [formStatus, setFormStatus] = useState({ type: '', message: '' });
+    const [isSending, setIsSending] = useState(false);
+    const contactFormRef = useRef(null);
     const nameArray = ['M', 'a', 'n', 'd', 'a', 'k', 'i', 'n', 'i'];
 
     const technicalExperience = [
@@ -99,7 +106,31 @@ const OnePagePortfolio = () => {
     }, []);
 
     const scrollToTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
-    const handleContactSubmit = (e) => { e.preventDefault(); alert('Thank you for your message!'); };
+    const handleContactSubmit = (e) => {
+        e.preventDefault();
+        if (isSending || !contactFormRef.current) return;
+
+        setIsSending(true);
+        setFormStatus({ type: '', message: '' });
+
+        emailjs
+            .sendForm(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                contactFormRef.current,
+                EMAILJS_PUBLIC_KEY
+            )
+            .then(() => {
+                setFormStatus({ type: 'success', message: 'Message sent. I will get back to you soon.' });
+                contactFormRef.current.reset();
+            })
+            .catch(() => {
+                setFormStatus({ type: 'error', message: 'Could not send the message. Please try again or email me directly.' });
+            })
+            .finally(() => {
+                setIsSending(false);
+            });
+    };
     const getRoleIcon = (type) => {
         switch (type) {
             case 'Organizer': return faTools;
@@ -118,7 +149,7 @@ const OnePagePortfolio = () => {
                             <span className={`${letterClass} _13`}>I'm{'\u00A0'}</span>
                             <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={15} /> <br />
                         </h1>
-                        <h2>Electronics Engineering Graduate | Web Developer | Cloud Enthusiast</h2>
+                        <h2 className="hero-role">Electronics Engineering Graduate</h2>
                         <p className="hero-description">Curious mind who loves creating, exploring, and occasionally getting lost in the joy of figuring things out.</p>
                         <div className="hero-buttons">
                             <a href="#contact" className="flat-button" onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }}>GET IN TOUCH</a>
@@ -320,16 +351,33 @@ const OnePagePortfolio = () => {
                                 </div>
                             </div>
                             <div className="contact-form">
-                                <form onSubmit={handleContactSubmit}>
-                                    <div className="form-group"><input type="text" placeholder="Your Name" required /></div>
-                                    <div className="form-group"><input type="email" placeholder="Your Email" required /></div>
-                                    <div className="form-group"><textarea placeholder="Your Message" rows="5" required></textarea></div>
-                                    <button type="submit" className="flat-button"><FontAwesomeIcon icon={faEnvelope} /> Send Message</button>
+                                <form ref={contactFormRef} onSubmit={handleContactSubmit}>
+                                    <div className="form-group">
+                                        <input type="text" name="name" placeholder="Your Name" autoComplete="name" required />
+                                    </div>
+                                    <div className="form-group">
+                                        <input type="email" name="email" placeholder="Your Email" autoComplete="email" required />
+                                    </div>
+                                    <div className="form-group">
+                                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                                    </div>
+                                    <button type="submit" className="flat-button" disabled={isSending}>
+                                        <FontAwesomeIcon icon={faEnvelope} /> {isSending ? 'Sending...' : 'Send Message'}
+                                    </button>
+                                    {formStatus.message && (
+                                        <p className={`form-status ${formStatus.type}`} role="status">
+                                            {formStatus.message}
+                                        </p>
+                                    )}
                                 </form>
                             </div>
                         </div>
                     </div>
                 </section>
+
+                <footer className="site-footer">
+                    <p>Built by Mandakini · © 2025 Mandakini Sapkota. All rights reserved.</p>
+                </footer>
 
                 {showScrollTop && (<button className="scroll-to-top" onClick={scrollToTop}><FontAwesomeIcon icon={faArrowUp} /></button>)}
             </div>

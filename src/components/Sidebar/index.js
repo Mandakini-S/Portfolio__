@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './index.scss';
-import LogoS from '../../assets/images/MS_logo-07.png';
+import LogoS from '../../assets/images/ms-logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faPenNib, faEnvelope, faBars, faTimes, faTrophy, faBlog, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin, faMedium } from '@fortawesome/free-brands-svg-icons';
@@ -77,7 +77,7 @@ const Sidebar = () => {
     <>
       <div className='nav-bar'>
         <a className='logo' href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
-          <img src={LogoS} alt="Logo" />
+          <img src={LogoS} alt="Mandakini Sapkota" />
         </a>
         <nav>
           {createNavLink('hero', faHome, 'Home')}
@@ -95,9 +95,27 @@ const Sidebar = () => {
         </ul>
       </div>
 
-      <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-        <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
-      </div>
+      <header className="mobile-header">
+        <a
+          className="mobile-logo"
+          href="#hero"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('hero');
+          }}
+        >
+          <img src={LogoS} alt="Mandakini Sapkota" />
+        </a>
+        <button
+          type="button"
+          className="mobile-menu-toggle"
+          onClick={toggleMobileMenu}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+        >
+          <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
+        </button>
+      </header>
 
       {isMobileMenuOpen && (
         <nav className="mobile-nav">

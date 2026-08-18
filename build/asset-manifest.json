@@ -1,19 +1,35 @@
 {
   "files": {
-    "main.css": "/static/css/main.84bb9495.css",
-    "main.js": "/static/js/main.24dc479c.js",
+    "main.css": "/static/css/main.aff05b6e.css",
+    "main.js": "/static/js/main.634fa682.js",
     "static/js/787.202b8111.chunk.js": "/static/js/787.202b8111.chunk.js",
-    "static/media/MS_logo-07.png": "/static/media/MS_logo-07.1b7b8d48f605659090ae.png",
+    "static/media/GlucoBalance.jpg": "/static/media/GlucoBalance.49940cd898a77f9750d9.jpg",
+    "static/media/ETHOSHACK2.jpeg": "/static/media/ETHOSHACK2.bcc76bef9065a7aece9e.jpeg",
+    "static/media/ICES2.jpeg": "/static/media/ICES2.9b661d4dd89ed3cf56f4.jpeg",
+    "static/media/ETHOSHACK3.jpeg": "/static/media/ETHOSHACK3.f6eb080cde072d1a50d3.jpeg",
+    "static/media/IOEGC1.jpeg": "/static/media/IOEGC1.c6051aef1154d8f93a40.jpeg",
+    "static/media/ICES1.jpeg": "/static/media/ICES1.dab33bbb5500f0b5705e.jpeg",
+    "static/media/HMS.jpg": "/static/media/HMS.18574c1d039496051d46.jpg",
+    "static/media/IOEGC3.jpeg": "/static/media/IOEGC3.f729abf0e9d531678ea2.jpeg",
+    "static/media/IOEGC2.jpeg": "/static/media/IOEGC2.fff5f368d270381b25c6.jpeg",
+    "static/media/Self_checkout_device.jpeg": "/static/media/Self_checkout_device.0e83edf74afb1c1289b7.jpeg",
+    "static/media/Self-removebg-preview.png": "/static/media/Self-removebg-preview.3755f10dc018a419ff7a.png",
+    "static/media/ICON.jpg": "/static/media/ICON.a2c6855a1441397298ff.jpg",
+    "static/media/IOEGC4.jpeg": "/static/media/IOEGC4.ca3b109bb10938353cd4.jpeg",
+    "static/media/ETHOSHACK1.jpeg": "/static/media/ETHOSHACK1.9df834cf1194c5d0e251.jpeg",
+    "static/media/Sagarmatha_Hacktoberfest.png": "/static/media/Sagarmatha_Hacktoberfest.cb33016c93567b156525.png",
+    "static/media/ms-logo.png": "/static/media/ms-logo.700929408f7e5b5d6258.png",
     "static/media/helvetica-neu.ttf": "/static/media/helvetica-neu.8a19678078a6b21c8057.ttf",
     "static/media/LaBelleAurore.woff2": "/static/media/LaBelleAurore.a83c1c58fd7e43972e4a.woff2",
+    "static/media/Ubuntu.jpg": "/static/media/Ubuntu.3de4fefc9b736dacee79.jpg",
     "static/media/CoolveticaRg-Regular.woff2": "/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/index.html",
-    "main.84bb9495.css.map": "/static/css/main.84bb9495.css.map",
-    "main.24dc479c.js.map": "/static/js/main.24dc479c.js.map",
+    "main.aff05b6e.css.map": "/static/css/main.aff05b6e.css.map",
+    "main.634fa682.js.map": "/static/js/main.634fa682.js.map",
     "787.202b8111.chunk.js.map": "/static/js/787.202b8111.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.84bb9495.css",
-    "static/js/main.24dc479c.js"
+    "static/css/main.aff05b6e.css",
+    "static/js/main.634fa682.js"
   ]
 }
